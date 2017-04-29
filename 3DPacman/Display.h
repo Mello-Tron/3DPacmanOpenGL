@@ -1,6 +1,40 @@
 #ifndef DISPLAY_H
 #define DISPLAY_H
 
+void drawHealth4(float health) {
+	glDisable(GL_DEPTH_TEST);
+
+	const int numDiv = 10;
+	const float sep = 0.04;
+	const float barHeight = 0.1 / (float)numDiv;
+	const float xStart = -1.0;
+	const float yStart = 0.5;
+	const float xWidth = 0.01;
+
+	glBegin(GL_QUADS);
+	glColor3f(0, 0, 0);
+	for (float i = 0; i < health; i += (sep + barHeight)) {
+		glVertex2f(xStart, yStart + (i/2));
+		glVertex2f(xStart + xWidth, yStart + (i / 2));
+		glVertex2f(xStart + xWidth, yStart + (i / 2) + barHeight);
+		glVertex2f(xStart, yStart + (i / 2) + barHeight);
+	}
+	glEnd();
+	glEnable(GL_DEPTH_TEST);
+}
+
+void displayText(float x, float y, int r, int g, int b, const char *string) {
+	glDisable(GL_DEPTH_TEST);
+	int j = strlen(string);
+
+	glColor3f(r, g, b);
+	glRasterPos2f(x, y);
+	for (int i = 0; i < j; i++) {
+		glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_24, string[i]);
+	}
+	glEnable(GL_DEPTH_TEST);
+}
+
 //////////////////////////////////////////////////////////////////////////////////////////////
 // Purpose: Called whenever GLUT determines the window needs to be redisplayed,
 //  (cont): Draws all objects and determines movement of camera
@@ -13,6 +47,8 @@ void display(void)
 
 	projection = Perspective(fovy, aspect, zNear, zFar);
 	modelview = Translate(0.0, 0.0, 1.0)*LookAt(eye, at, up);
+
+	moveCamera();
 
 	//draw skybox
 	skyboxAngle += 0.002;
@@ -42,7 +78,8 @@ void display(void)
 		myDonaldClose.draw(theta, donaldPosition2);
 	}
 
-	moveCamera();
+	vec3 screenPicPosition(at.x, at.y, at.z);
+	screenPic.draw(theta, screenPicPosition);
 
 	// swap the buffers
 	glutSwapBuffers();

@@ -11,6 +11,7 @@ void OnShutdown()
 	myTree.cleanup();
 	myDonald.cleanup();
 	myDonaldClose.cleanup();
+	screenPic.cleanup();
 }
 
 #endif

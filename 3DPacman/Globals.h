@@ -32,6 +32,7 @@ Brick ground(0);
 tree myTree(0);
 tree myDonald(2);
 tree myDonaldClose(1);
+graphic2d screenPic(1);
 vec3 donaldPosition = vec3(56.0, 0.2, 3.0);
 vec3 donaldPosition2 = vec3(21.0, 0.2, 25.0);
 bool drawDonaldCloseFace = false;

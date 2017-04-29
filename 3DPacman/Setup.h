@@ -20,6 +20,7 @@ void init()
 	myTree.init();
 	myDonald.init();
 	myDonaldClose.init();
+	screenPic.init();
 
 	view = RotateY(15) * view;//rotate eye 30 degrees
 	at = eye + view;

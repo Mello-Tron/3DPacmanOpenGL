@@ -20,6 +20,7 @@ mat4 projection, modelview, translate;
 #include "Brick.h"
 #include "tree.h"
 #include "Zebra.h"
+#include "Graphic2d.h"
 
 //Custom Header Files
 #include "Globals.h"
