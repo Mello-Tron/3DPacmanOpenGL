@@ -71,6 +71,15 @@ public:
 	virtual void draw() { };      // must override draw 
 	virtual void cleanup() = 0;   // must provide a cleanup function
 
+	//Patrick
+	void init() {
+		init_data();
+		init_VAO();
+		init_VBO();
+		init_shader();
+		init_texture_map();
+	}
+
 };
 
 
