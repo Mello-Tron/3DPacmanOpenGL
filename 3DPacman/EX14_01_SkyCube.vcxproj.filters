@@ -1,0 +1,114 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Header Files\Custom Headers">
+      <UniqueIdentifier>{8097064b-d111-4dd2-bb52-46cfa6a0230a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Kent%27s Headers">
+      <UniqueIdentifier>{901a5bdb-8e70-4a01-a790-63ef4cf3d417}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Angel Headers">
+      <UniqueIdentifier>{e2c3da5b-69fc-4103-8a84-d98b721ca1e0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Shaders">
+      <UniqueIdentifier>{0c6c2a72-cf5e-4f2a-896b-2f6185417162}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Bitmap">
+      <UniqueIdentifier>{697b8d44-4ee0-47c0-aeaa-841cf2faafa3}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="InitShader.cpp">
+      <Filter>Source Files\Shaders</Filter>
+    </ClCompile>
+    <ClCompile Include="LoadBitmap.cpp">
+      <Filter>Source Files\Bitmap</Filter>
+    </ClCompile>
+    <ClCompile Include="MyLoadBitmap.cpp">
+      <Filter>Source Files\Bitmap</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+    <None Include="fshader32.glsl">
+      <Filter>Source Files\Shaders</Filter>
+    </None>
+    <None Include="fshader72.glsl">
+      <Filter>Source Files\Shaders</Filter>
+    </None>
+    <None Include="vshader32.glsl">
+      <Filter>Source Files\Shaders</Filter>
+    </None>
+    <None Include="vshader72.glsl">
+      <Filter>Source Files\Shaders</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Maze.h">
+      <Filter>Header Files\Custom Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Brick.h">
+      <Filter>Header Files\Kent%27s Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="GraphicsObject.h">
+      <Filter>Header Files\Kent%27s Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="SkyBox.h">
+      <Filter>Header Files\Kent%27s Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Zebra.h">
+      <Filter>Header Files\Kent%27s Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Tree.h">
+      <Filter>Header Files\Kent%27s Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="vec.h">
+      <Filter>Header Files\Angel Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Angel.h">
+      <Filter>Header Files\Angel Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="mat.h">
+      <Filter>Header Files\Angel Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="texture.h">
+      <Filter>Header Files\Angel Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Keyboard.h">
+      <Filter>Header Files\Custom Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Globals.h">
+      <Filter>Header Files\Custom Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Mouse.h">
+      <Filter>Header Files\Custom Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Camera.h">
+      <Filter>Header Files\Custom Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Setup.h">
+      <Filter>Header Files\Custom Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Shutdown.h">
+      <Filter>Header Files\Custom Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Display.h">
+      <Filter>Header Files\Custom Headers</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
