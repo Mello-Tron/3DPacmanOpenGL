@@ -1,7 +1,8 @@
 #ifndef DISPLAY_H
 #define DISPLAY_H
 
-void drawHealth4(float health) {
+//2d health bar
+void drawHealthBar(float health) {
 	glDisable(GL_DEPTH_TEST);
 
 	const int numDiv = 10;
@@ -23,6 +24,7 @@ void drawHealth4(float health) {
 	glEnable(GL_DEPTH_TEST);
 }
 
+//2d Text
 void displayText(float x, float y, int r, int g, int b, const char *string) {
 	glDisable(GL_DEPTH_TEST);
 	int j = strlen(string);
@@ -78,8 +80,9 @@ void display(void)
 		myDonaldClose.draw(theta, donaldPosition2);
 	}
 
-	vec3 screenPicPosition(at.x, at.y, at.z);
-	screenPic.draw(theta, screenPicPosition);
+	//Attempt at 2d graphic
+	//vec3 screenPicPosition(at.x, at.y, at.z);
+	//screenPic.draw(theta, screenPicPosition);
 
 	// swap the buffers
 	glutSwapBuffers();
