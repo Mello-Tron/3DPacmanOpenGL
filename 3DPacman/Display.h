@@ -61,14 +61,14 @@ void display(void)
 	drawMaze(maze);
 
 	//draw tree set 1
-	for (int i = 2; i < 54; i += 2) {
-		myTree.draw(theta, vec3(float(i), 0.0, 1.5));
-	}
+	//for (int i = 2; i < 54; i += 2) {
+	//	myTree.draw(theta, vec3(float(i), 0.0, 1.5));
+	//}
 
 	//draw tree set 2
-	for (int i = 14; i < 26; i += 2) {
-		myTree.draw(theta, vec3(float(i), 0.0, 4.5));
-	}
+	//for (int i = 14; i < 26; i += 2) {
+	//	myTree.draw(theta, vec3(float(i), 0.0, 4.5));
+	//}
 
 	//draw donald 1
 	if (!drawDonaldCloseFace) {

@@ -23,12 +23,13 @@ c:\users\pherbert17\documents\github\3dpacmanopengl\3dpacman\zebra.h(173): warni
 c:\users\pherbert17\documents\github\3dpacmanopengl\3dpacman\graphic2d.h(123): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
 c:\users\pherbert17\documents\github\3dpacmanopengl\3dpacman\graphic2d.h(181): warning C4305: 'argument': truncation from 'double' to 'GLclampf'
 c:\users\pherbert17\documents\github\3dpacmanopengl\3dpacman\globals.h(9): warning C4305: 'initializing': truncation from 'double' to 'GLfloat'
-c:\users\pherbert17\documents\github\3dpacmanopengl\3dpacman\globals.h(27): warning C4305: 'initializing': truncation from 'double' to 'float'
-c:\users\pherbert17\documents\github\3dpacmanopengl\3dpacman\globals.h(36): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-c:\users\pherbert17\documents\github\3dpacmanopengl\3dpacman\globals.h(37): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\users\pherbert17\documents\github\3dpacmanopengl\3dpacman\globals.h(26): warning C4305: 'initializing': truncation from 'double' to 'GLfloat'
+c:\users\pherbert17\documents\github\3dpacmanopengl\3dpacman\globals.h(32): warning C4305: 'initializing': truncation from 'double' to 'float'
+c:\users\pherbert17\documents\github\3dpacmanopengl\3dpacman\globals.h(41): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\users\pherbert17\documents\github\3dpacmanopengl\3dpacman\globals.h(42): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
 c:\users\pherbert17\documents\github\3dpacmanopengl\3dpacman\maze.h(13): warning C4018: '<': signed/unsigned mismatch
-c:\users\pherbert17\documents\github\3dpacmanopengl\3dpacman\maze.h(37): warning C4018: '<': signed/unsigned mismatch
-c:\users\pherbert17\documents\github\3dpacmanopengl\3dpacman\maze.h(53): warning C4018: '<': signed/unsigned mismatch
+c:\users\pherbert17\documents\github\3dpacmanopengl\3dpacman\maze.h(40): warning C4018: '<': signed/unsigned mismatch
+c:\users\pherbert17\documents\github\3dpacmanopengl\3dpacman\maze.h(56): warning C4018: '<': signed/unsigned mismatch
 c:\users\pherbert17\documents\github\3dpacmanopengl\3dpacman\mouse.h(16): warning C4305: 'initializing': truncation from 'double' to 'float'
 c:\users\pherbert17\documents\github\3dpacmanopengl\3dpacman\camera.h(13): warning C4305: 'initializing': truncation from 'double' to 'float'
 c:\users\pherbert17\documents\github\3dpacmanopengl\3dpacman\camera.h(32): warning C4018: '<': signed/unsigned mismatch

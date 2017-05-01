@@ -19,8 +19,11 @@ void drawMaze(string &maze) {
 			posX = 0.0;
 			posZ += 2.0;
 		}
-		else {
+		else if (maze[i] == '.') {
 			ground.draw(theta, vec3(posX, -2.0, posZ));
+			posX += 2.0;
+		}
+		else {
 			posX += 2.0;
 		}
 	}
