@@ -430,7 +430,8 @@ struct vec4 {
 
 inline
 GLfloat dot( const vec4& u, const vec4& v ) {
-    return u.x*v.x + u.y*v.y + u.z*v.z + u.w+v.w;
+	// Kent fixed dot product error!  u.w+v.w is NOT u.w*v.w! :)
+    return u.x*v.x + u.y*v.y + u.z*v.z + u.w*v.w;
 }
 
 inline
