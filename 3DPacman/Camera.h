@@ -60,6 +60,60 @@ bool cameraIsCollidingWallGrid(int direction) {
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////
+// Purpose: Returns true if there is a collision between where the camera is going and any wall (GRID system)
+// Input: (int) direction - the direction the camera is moving, case 0 = forwards, case 1 = reverse
+// Author: Patrick H. 4/17
+// Idea for v3: use floor/ceiling instead of for loop for z value & access rows[] not by for loop
+//////////////////////////////////////////////////////////////////////////////////////////////
+bool cameraIsCollidingWallGridV2(int direction) {
+	float posZ = 0.0;
+	bool isCollision = false;
+	float size = 1.8;
+
+	vec4 eye2;
+
+	switch (direction) {
+	case 0: //forward
+		eye2 = eye + cameraSpeed*view;
+		break;
+	case 1: //reverse
+		eye2 = eye - cameraSpeed*view;
+		break;
+	default:
+		//invalid
+		break;
+	}
+
+	vec3 nextPos = (eye2.x, eye2.y, eye2.z);
+
+	for (int i = 0; i < maze.size(); i++) {
+		if (eye2.z > ((i*2) - size) && eye2.z < ((i*2) + size)) {
+			int e = 0;
+			for (int j = 0; j < maze.size(); j++) {
+				if (maze[j] == 'E') {
+					e++;
+				}
+				if (e == i) {
+					float posX = 0.0;
+					j++;
+					while (maze[j] != 'E') {
+						if (maze[j] == '#' && eye2.x < (posX + size) && eye2.x > (posX - size)) {
+							isCollision = true;
+						}
+						j++;
+						posX += 2.0;
+					}
+					break;
+				}
+			}
+			break;
+		}
+	}
+
+	return isCollision;
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////////
 // Purpose: Returns true if there is a collision between where the camera is going and any wall (RAY intersection)
 // Author: Patrick H. 4/17
 //////////////////////////////////////////////////////////////////////////////////////////////
@@ -99,18 +153,18 @@ bool cameraIsCollidingWallRay() {
 void gridCollision() {
 	if (goForward == true)
 	{
-		//if (!cameraIsCollidingWallGrid(0)) {
+		if (!cameraIsCollidingWallGrid(0)) {
 			eye = eye + cameraSpeed*view;
 			at = at + cameraSpeed*view;
-		//}
+		}
 	}
 
 	if (goReverse == true)
 	{
-		//if (!cameraIsCollidingWallGrid(1)) {
+		if (!cameraIsCollidingWallGrid(1)) {
 			eye = eye - cameraSpeed*view;
 			at = at - cameraSpeed*view;
-		//}
+		}
 	}
 
 	if (strafeLeft == true)
