@@ -52,10 +52,15 @@ void display(void)
 
 	moveCamera();
 
+	glDisable(GL_CULL_FACE);
+
 	//draw skybox
 	skyboxAngle += 0.002;
 	GLfloat skyboxTheta[3] = { theta[0] + skyboxAngle, theta[1], theta[2] + (skyboxAngle * 2.0) };
 	go_skybox.draw(skyboxTheta);
+
+	glEnable(GL_CULL_FACE);
+	glCullFace(GL_BACK);
 
 	//draw maze
 	drawMaze(maze);

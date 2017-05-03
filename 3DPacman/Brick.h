@@ -111,6 +111,8 @@ public:
 	// Called forth at setup to go forth and conquer textures
 	void init_texture_map()
 	{
+		//glEnable(GL_CULL_FACE);
+		//glCullFace(GL_BACK);
 		glGenTextures(1, &tex);
 		glActiveTexture(this_texture);
 

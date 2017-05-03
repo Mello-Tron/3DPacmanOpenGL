@@ -123,7 +123,10 @@ public:
 
 	// Called from draw before drawing the object
 	void start_shader()
-	{	glEnable(GL_TEXTURE_CUBE_MAP);
+	{	
+		//glDisable(GL_CULL_FACE);
+		//glCullFace(GL_BACK);
+		glEnable(GL_TEXTURE_CUBE_MAP);
 		glActiveTexture(this_texture);
 		glBindVertexArray( vao );
 		glUseProgram( program );
@@ -133,7 +136,10 @@ public:
 
 	// Called after draw to stop drawing the object
 	void stop_shader()
-	{	glUseProgram(0);
+	{	
+		//glEnable(GL_CULL_FACE);
+		//glCullFace(GL_BACK);
+		glUseProgram(0);
 		glBindVertexArray( 0 );
 		GL_CHECK_ERRORS
 	}
