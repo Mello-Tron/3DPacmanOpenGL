@@ -33,14 +33,17 @@ c:\users\pherbert17\documents\github\3dpacmanopengl\3dpacman\maze.h(56): warning
 c:\users\pherbert17\documents\github\3dpacmanopengl\3dpacman\mouse.h(16): warning C4305: 'initializing': truncation from 'double' to 'float'
 c:\users\pherbert17\documents\github\3dpacmanopengl\3dpacman\camera.h(13): warning C4305: 'initializing': truncation from 'double' to 'float'
 c:\users\pherbert17\documents\github\3dpacmanopengl\3dpacman\camera.h(32): warning C4018: '<': signed/unsigned mismatch
-c:\users\pherbert17\documents\github\3dpacmanopengl\3dpacman\camera.h(72): warning C4018: '<': signed/unsigned mismatch
+c:\users\pherbert17\documents\github\3dpacmanopengl\3dpacman\camera.h(70): warning C4305: 'initializing': truncation from 'double' to 'float'
+c:\users\pherbert17\documents\github\3dpacmanopengl\3dpacman\camera.h(88): warning C4018: '<': signed/unsigned mismatch
+c:\users\pherbert17\documents\github\3dpacmanopengl\3dpacman\camera.h(91): warning C4018: '<': signed/unsigned mismatch
+c:\users\pherbert17\documents\github\3dpacmanopengl\3dpacman\camera.h(125): warning C4018: '<': signed/unsigned mismatch
 c:\users\pherbert17\documents\github\3dpacmanopengl\3dpacman\display.h(9): warning C4305: 'initializing': truncation from 'double' to 'float'
 c:\users\pherbert17\documents\github\3dpacmanopengl\3dpacman\display.h(10): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
 c:\users\pherbert17\documents\github\3dpacmanopengl\3dpacman\display.h(10): warning C4244: 'initializing': conversion from 'double' to 'const float', possible loss of data
 c:\users\pherbert17\documents\github\3dpacmanopengl\3dpacman\display.h(13): warning C4305: 'initializing': truncation from 'double' to 'float'
 c:\users\pherbert17\documents\github\3dpacmanopengl\3dpacman\display.h(32): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
-c:\users\pherbert17\documents\github\3dpacmanopengl\3dpacman\display.h(56): warning C4305: '+=': truncation from 'double' to 'GLfloat'
-c:\users\pherbert17\documents\github\3dpacmanopengl\3dpacman\display.h(57): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
-c:\users\pherbert17\documents\github\3dpacmanopengl\3dpacman\display.h(57): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
+c:\users\pherbert17\documents\github\3dpacmanopengl\3dpacman\display.h(59): warning C4305: '+=': truncation from 'double' to 'GLfloat'
+c:\users\pherbert17\documents\github\3dpacmanopengl\3dpacman\display.h(60): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
+c:\users\pherbert17\documents\github\3dpacmanopengl\3dpacman\display.h(60): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
   EX14_01_SkyCube.vcxproj -> C:\Users\pherbert17\Documents\GitHub\3DPacmanOpenGL\3DPacman\Debug\EX14_01_SkyCube.exe
   EX14_01_SkyCube.vcxproj -> C:\Users\pherbert17\Documents\GitHub\3DPacmanOpenGL\3DPacman\Debug\EX14_01_SkyCube.pdb (Full PDB)
