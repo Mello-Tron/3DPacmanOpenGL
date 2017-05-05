@@ -153,18 +153,18 @@ bool cameraIsCollidingWallRay() {
 void gridCollision() {
 	if (goForward == true)
 	{
-		if (!cameraIsCollidingWallGrid(0)) {
+		//if (!cameraIsCollidingWallGrid(0)) {
 			eye = eye + cameraSpeed*view;
 			at = at + cameraSpeed*view;
-		}
+		//}
 	}
 
 	if (goReverse == true)
 	{
-		if (!cameraIsCollidingWallGrid(1)) {
+		//if (!cameraIsCollidingWallGrid(1)) {
 			eye = eye - cameraSpeed*view;
 			at = at - cameraSpeed*view;
-		}
+		//}
 	}
 
 	if (strafeLeft == true)

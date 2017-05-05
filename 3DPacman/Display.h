@@ -85,8 +85,8 @@ void display(void)
 	}
 
 	//Attempt at 2d graphic
-	//vec3 screenPicPosition(at.x, at.y, at.z);
-	//screenPic.draw(theta, screenPicPosition);
+	vec3 screenPicPosition(at.x, at.y, at.z);
+	screenPic.draw(theta, screenPicPosition);
 
 	// swap the buffers
 	glutSwapBuffers();

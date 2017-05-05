@@ -10,15 +10,15 @@ GLint angleID2;
 // Data vertices for the Tree
 point4  graphic2d_vertices[8] = {
 	// Quad 1
-	point4(-1.0,  1.0, 0.0, 1.0),
-	point4(1.0,  1.0, 0.0, 1.0),
-	point4(1.0,  -1.0, 0.0, 1.0),
-	point4(-1.0,  -1.0, 0.0, 1.0),
+	point4(-1.0,  1.0, -3.0, 1.0),
+	point4(1.0,  1.0, -3.0, 1.0),
+	point4(1.0,  -1.0, -3.0, 1.0),
+	point4(-1.0,  -1.0, -3.0, 1.0),
 	// Quad 2
-	point4(0.0,  1.0,  -1.0, 1.0),
-	point4(0.0,  1.0,   1.0, 1.0),
-	point4(0.0, -1.0,   1.0, 1.0),
-	point4(0.0, -1.0,  -1.0, 1.0),
+	point4(0.0,  1.0,  -4.0, 1.0),
+	point4(0.0,  1.0,   -2.0, 1.0),
+	point4(0.0, -1.0,   -2.0, 1.0),
+	point4(0.0, -1.0,  -4.0, 1.0),
 };
 
 // RGBA colors_2d
@@ -121,7 +121,7 @@ public:
 
 			if (textureChoice > 0) {
 				vec2 nothing = (0.0, 0.0);
-				for (int i = 0; i < 5; i++) {
+				for (int i = 6; i < 12; i++) {
 					mapcoords_2d[i] = nothing;
 				}
 			}
@@ -209,8 +209,11 @@ public:
 			myScaleZ = 1.5;
 		}
 
+		mat4 identity = mat4(1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0);
+		mat4 typical = modelview * Translate(translate) * Scale(1.0, 1.0, 1.0) * RotateZ(mytheta[0]) * RotateX(mytheta[1]) * RotateY(mytheta[1]);
+
 		// ship down the new the projection and viewing matrices
-		glUniformMatrix4fv(uniforms[4], 1, GL_TRUE, modelview * Translate(translate) * Scale(myScaleX, myScaleY, myScaleZ) * RotateZ(mytheta[2]) * RotateY(mytheta[1]) * RotateX(mytheta[0]));
+		glUniformMatrix4fv(uniforms[4], 1, GL_TRUE, identity * Scale(0.25, 0.4, 0.25));
 		GL_CHECK_ERRORS
 
 			glUniformMatrix4fv(uniforms[5], 1, GL_TRUE, projection);
