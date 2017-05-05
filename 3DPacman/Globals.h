@@ -45,35 +45,82 @@ float donaldXSpeed = 0.5;
 vec3 donaldPosition2 = vec3(26.5, 0.0, 2.75);
 bool drawDonaldCloseFace = false;
 
+string maze;
+
 //Sound
 sf::Sound sound;
 sf::Sound sound2;
 
 //String Map of Maze
-string row0 = "####################################################E";
-string row1 = "#........................##........................#E";
-string row2 = "#........................##........................#E";
-string row3 = "#..########..##########..##..########..##########..#E";
-string row4 = "#..#NNNNNN#..#NNNNNNNN#..##..#NNNNNN#..#NNNNNNNN#..#E";
-string row5 = "#..#NNNNNN#..#NNNNNNNN#..##..#NNNNNN#..#NNNNNNNN#..#E";
-string row6 = "#..#NNNNNN#..#NNNNNNNN#..##..#NNNNNN#..#NNNNNNNN#..#E";
-string row7 = "#..#NNNNNN#..#NNNNNNNN#..##..#NNNNNN#..#NNNNNNNN#..#E";
-string row8 = "#..########..##########..##..########..##########..#E";
-string row9 = "#..................................................#E";
-string row10 = "#..................................................#E";
-string row11 = "#..########..####..##############..####..########..#E";
-string row12 = "#..#NNNNNN#..#NN#..#............#..#NN#..#NNNNNN#..#E";
-string row13 = "#..#NNNNNN#..#NN#..#............#..#NN#..#NNNNNN#..#E";
-string row14 = "#..########..#NN#..##############..#NN#..########..#E";
-string row15 = "#............#NN#........##........#NN#............#E";
-string row16 = "#............#NN#........##........#NN#............#E";
-string row17 = "###########..#NN#######..##..#######NN#..###########E";
-string row18 = "#NNNNNNNNN#..#NNNNNNNN#..##..#NNNNNNNN#..#NNNNNNNNN#E";
-string row19 = "#NNNNNNNNN#..#NNNNNNNN#..##..#NNNNNNNN#..#NNNNNNNNN#E";
-string row20 = "#NNNNNNNNN#..##########..##..##########..#NNNNNNNNN#E";
+string row[61] = {
+	"##########################NN##########################E",
+	"#........................#NN#........................#E",
+	"#........................#NN#........................#E",
+	"#..########..##########..#NN#..########..##########..#E",
+	"#..#NNNNNN#..#NNNNNNNN#..#NN#..#NNNNNN#..#NNNNNNNN#..#E",
+	"#..#NNNNNN#..#NNNNNNNN#..#NN#..#NNNNNN#..#NNNNNNNN#..#E",
+	"#..#NNNNNN#..#NNNNNNNN#..#NN#..#NNNNNN#..#NNNNNNNN#..#E",
+	"#..#NNNNNN#..#NNNNNNNN#..#NN#..#NNNNNN#..#NNNNNNNN#..#E",
+	"#..########..##########..####..########..##########..#E",
+	"#....................................................#E",
+	"#....................................................#E",
+	"#..########..####..################..####..########..#E",
+	"#..#NNNNNN#..#NN#..#..............#..#NN#..#NNNNNN#..#E",
+	"#..#NNNNNN#..#NN#..#..............#..#NN#..#NNNNNN#..#E",
+	"#..########..#NN#..################..#NN#..########..#E",
+	"#............#NN#........#NN#........#NN#............#E",
+	"#............#NN#........#NN#........#NN#............#E",
+	"###########..#NN#######..#NN#..#######NN#..###########E",
+	"NNNNNNNNNN#..#NNNNNNNN#..#NN#..#NNNNNNNN#..#NNNNNNNNNNE",
+	"NNNNNNNNNN#..#NNNNNNNN#..#NN#..#NNNNNNNN#..#NNNNNNNNNNE",
+	"NNNNNNNNNN#..##########..####..##########..#NNNNNNNNNNE",
+	"NNNNNNNNNN#..#NN#....................#NN#..#NNNNNNNNNNE",
+	"NNNNNNNNNN#..#NN#....................#NN#..#NNNNNNNNNNE",
+	"NNNNNNNNNN#..#NN#..#####......#####..#NN#..#NNNNNNNNNNE",
+	"NNNNNNNNNN#..#NN#..#..............#..#NN#..#NNNNNNNNNNE",
+	"NNNNNNNNNN#..#NN#..#..............#..#NN#..#NNNNNNNNNNE",
+	"NNNNNNNNNN#..####..#..............#..####..#NNNNNNNNNNE",
+	"NNNNNNNNNN#........#..............#........#NNNNNNNNNNE",
+	"NNNNNNNNNN#........#..............#........#NNNNNNNNNNE",
+	"NNNNNNNNNN#..####..#..............#..####..#NNNNNNNNNNE",
+	"NNNNNNNNNN#..#NN#..#..............#..#NN#..#NNNNNNNNNNE",
+	"NNNNNNNNNN#..#NN#..#..............#..#NN#..#NNNNNNNNNNE",
+	"NNNNNNNNNN#..#NN#..################..#NN#..#NNNNNNNNNNE",
+	"NNNNNNNNNN#..#NN#....................#NN#..#NNNNNNNNNNE",
+	"NNNNNNNNNN#..#NN#....................#NN#..#NNNNNNNNNNE",
+	"NNNNNNNNNN#..#NN#..################..#NN#..#NNNNNNNNNNE",
+	"NNNNNNNNNN#..#NN#..#NNNNNNNNNNNNNN#..#NN#..#NNNNNNNNNNE",
+	"NNNNNNNNNN#..#NN#..#NNNNNNNNNNNNNN#..#NN#..#NNNNNNNNNNE",
+	"###########..####..#######NN#######..####..###########E",
+	"#........................#NN#........................#E",
+	"#........................#NN#........................#E",
+	"#..########..##########..#NN#..##########..########..#E",
+	"#..#NNNNNN#..#NNNNNNNN#..#NN#..#NNNNNNNN#..#NNNNNN#..#E",
+	"#..#NNNNNN#..#NNNNNNNN#..#NN#..#NNNNNNNN#..#NNNNNN#..#E",
+	"#..#####NN#..##########..####..##########..#NN#####..#E",
+	"#......#NN#................................#NN#......#E",
+	"#......#NN#................................#NN#......#E",
+	"#####..#NN#..####..################..####..#NN#..#####E",
+	"NNNN#..#NN#..#NN#..#NNNNNNNNNNNNNN#..#NN#..#NN#..#NNNNE",
+	"NNNN#..#NN#..#NN#..#NNNNNNNNNNNNNN#..#NN#..#NN#..#NNNNE",
+	"#####..####..#NN#..#######NN#######..#NN#..####..#####E",
+	"#............#NN#........#NN#........#NN#............#E",
+	"#............#NN#........#NN#........#NN#............#E",
+	"#..###########NN#######..#NN#..#######NN###########..#E",
+	"#..#NNNNNNNNNNNNNNNNNN#..#NN#..#NNNNNNNNNNNNNNNNNN#..#E",
+	"#..#NNNNNNNNNNNNNNNNNN#..#NN#..#NNNNNNNNNNNNNNNNNN#..#E",
+	"#..####################..####..####################..#E",
+	"#....................................................#E",
+	"#....................................................#E",
+	"######################################################E" };
 
-string maze = row0 + row1 + row2 + row3 + row4 + row5 + row6 + row7 + row8 + row9 + row10 + row11 + row12
-+ row13 + row14 + row15 + row16 + row17 + row18 + row19 + row20;
-//string maze = "#..#";
+
+void CreateStringMaze(string row[])
+{
+	for (int i = 0; i < 61; i++)
+	{
+		maze = maze + row[i];
+	}
+}
 
 #endif
