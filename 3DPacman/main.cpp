@@ -32,6 +32,9 @@ mat4 projection, modelview, translate;
 #include "Shutdown.h"
 #include "Display.h"
 
+//Audio
+#include <SFML/Audio.hpp>
+
 int main(int argc, char **argv)
 {
 	atexit(OnShutdown);
@@ -54,6 +57,14 @@ int main(int argc, char **argv)
 	glutKeyboardUpFunc(keyRelease);
 
 	glutFullScreen();
+
+	sf::SoundBuffer buffer;
+	if (!buffer.loadFromFile("pacman_beginning.wav"))
+		return -1;
+	sf::Sound sound;
+	sound.setBuffer(buffer);
+
+	sound.play();
 
     glutMainLoop();
 
