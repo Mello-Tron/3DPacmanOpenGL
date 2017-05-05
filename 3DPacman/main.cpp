@@ -43,6 +43,7 @@ int main(int argc, char **argv)
 	checkGlew();
     init();
     glutReshapeFunc(myReshape);
+	CreateStringMaze(row);
 	glutDisplayFunc(display);
 	glutSpecialFunc(arrowKey);
 	
