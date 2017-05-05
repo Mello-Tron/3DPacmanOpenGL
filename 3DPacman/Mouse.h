@@ -16,7 +16,7 @@ void mouseMove(int x, int y)
 	float yRotate = 0.16;
 
 	float differenceX = x - centerX;
-	cout << differenceX << endl;
+	//cout << differenceX << endl;
 
 	if (differenceX > sensitivity) {
 		view = RotateY(-xRotate - (abs(differenceX)*0.05)) * view;//rotate eye -3 degrees

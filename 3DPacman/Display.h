@@ -72,7 +72,33 @@ void display(void)
 		donaldPosition = nextDonaldPosition;
 	}
 	else {
+		float distanceBetween = pow((donaldPosition.x - eye.x), 2) + pow((donaldPosition.y - eye.y), 2) + pow((donaldPosition.z - eye.z), 2);
+		distanceBetween /= 10.0;
+		//distanceBetween = log(distanceBetween) * 11.0;
+		//distanceBetween *= log(distanceBetween) / 100.0;
 		donaldXSpeed *= -1;
+		float volume = 100.0;
+		//if (distanceBetween > 100.0)
+		//	volume = 0.0;
+		//else {
+		float newVolume = volume - distanceBetween;
+		if (newVolume > 50.0) {
+			//volume = (100.0 + newVolume) / 2;
+			volume = newVolume;
+		}
+		else if (newVolume < 50.0) {
+			volume = newVolume / 3;
+		}
+		else
+			volume = newVolume;
+
+		if (volume < 1.1)
+			volume = 0.0;
+		else
+			volume = 12.04*log2(volume) + 20.0;
+		//}
+		//cout << volume << endl;
+		sound2.setVolume(volume);
 		sound2.play();
 	}
 	myDonald.draw(theta, donaldPosition);
