@@ -1,6 +1,8 @@
 #ifndef GLOBALS_H
 #define GLOBALS_H
 
+#include<SFML/Audio.hpp>
+
 GLfloat  zoom = 1.0;         // Translation factor
 vec4 view(6.5, 0.0, 2.75, 0.0);
 
@@ -42,6 +44,10 @@ vec3 donaldPosition = vec3(16.5, 0.0, 2.75);
 float donaldXSpeed = 0.5;
 vec3 donaldPosition2 = vec3(26.5, 0.0, 2.75);
 bool drawDonaldCloseFace = false;
+
+//Sound
+sf::Sound sound;
+sf::Sound sound2;
 
 //String Map of Maze
 string row0 = "####################################################E";

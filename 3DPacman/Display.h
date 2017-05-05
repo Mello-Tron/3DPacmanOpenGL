@@ -73,6 +73,7 @@ void display(void)
 	}
 	else {
 		donaldXSpeed *= -1;
+		sound2.play();
 	}
 	myDonald.draw(theta, donaldPosition);
 

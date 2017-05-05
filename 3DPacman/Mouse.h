@@ -15,29 +15,37 @@ void mouseMove(int x, int y)
 	float xRotate = 2.5;
 	float yRotate = 0.16;
 
-	if (x - centerX > sensitivity) {
-		view = RotateY(-xRotate) * view;//rotate eye -3 degrees
+	float differenceX = x - centerX;
+	cout << differenceX << endl;
+
+	if (differenceX > sensitivity) {
+		view = RotateY(-xRotate - (abs(differenceX)*0.05)) * view;//rotate eye -3 degrees
 		GLfloat temp = at.y;
 		at = eye + view;
 		at.y = temp;
 	}
-	else if (x - centerX < -sensitivity) {
-		view = RotateY(xRotate) * view;//rotate eye 3 degrees
+	else if (differenceX < -sensitivity) {
+		view = RotateY(xRotate + (abs(differenceX)*0.05)) * view;//rotate eye 3 degrees
 		GLfloat temp = at.y;
 		at = eye + view;
 		at.y = temp;
 	}
 
-	if (y - centerY > sensitivity) {
-		at.y -= yRotate;
+	float differenceY = y - centerY;
+	if (differenceY > sensitivity) {
+		at.y -= yRotate + (abs(differenceY)*0.004);
+		if (at.y > 0)
+			at.y -= 0.05;
 	}
-	else if (y - centerY < -sensitivity) {
-		at.y += yRotate;
+	else if (differenceY < -sensitivity) {
+		at.y += yRotate + (abs(differenceY)*0.004);
+		if (at.y < 0)
+			at.y += 0.05;
 	}
 
 	if (x != centerX || y != centerY) {
 		glutWarpPointer(centerX, centerY);
-		glutPostRedisplay();
+		//glutPostRedisplay();
 	}
 }
 

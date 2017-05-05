@@ -61,8 +61,12 @@ int main(int argc, char **argv)
 	sf::SoundBuffer buffer;
 	if (!buffer.loadFromFile("pacman_beginning.wav"))
 		return -1;
-	sf::Sound sound;
 	sound.setBuffer(buffer);
+
+	sf::SoundBuffer buffer2;
+	if (!buffer2.loadFromFile("pacman_eatghost.wav"))
+		return -1;
+	sound2.setBuffer(buffer2);
 
 	sound.play();
 
