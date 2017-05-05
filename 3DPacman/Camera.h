@@ -2,6 +2,38 @@
 #define CAMERA_H
 
 //////////////////////////////////////////////////////////////////////////////////////////////
+// Purpose: Returns true if there is a collision between the given position and any wall (GRID system)
+// Author: Patrick H. 5/4
+//////////////////////////////////////////////////////////////////////////////////////////////
+bool positionIsCollidingWallGrid(float myX, float myY, float myZ) {
+	float posX = 0.0;
+	float posZ = 0.0;
+	bool isCollision = false;
+	float size = 1.8;
+	float size2 = 6.5;
+
+	for (int i = 0; i < maze.size(); i++) {
+		if (maze[i] == '#') {
+			if (myX < (posX + size) && myX >(posX - size) && myZ < (posZ + size) && myZ >(posZ - size)) {
+				isCollision = true;
+				break;
+			}
+
+			posX += 2.0;
+		}
+		else if (maze[i] == 'E') {
+			posX = 0.0;
+			posZ += 2.0;
+		}
+		else {
+			posX += 2.0;
+		}
+	}
+
+	return isCollision;
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////////
 // Purpose: Returns true if there is a collision between where the camera is going and any wall (GRID system)
 // Input: (int) direction - the direction the camera is moving, case 0 = forwards, case 1 = reverse
 // Author: Patrick H. 4/17
@@ -153,18 +185,18 @@ bool cameraIsCollidingWallRay() {
 void gridCollision() {
 	if (goForward == true)
 	{
-		//if (!cameraIsCollidingWallGrid(0)) {
+		if (!cameraIsCollidingWallGrid(0)) {
 			eye = eye + cameraSpeed*view;
 			at = at + cameraSpeed*view;
-		//}
+		}
 	}
 
 	if (goReverse == true)
 	{
-		//if (!cameraIsCollidingWallGrid(1)) {
+		if (!cameraIsCollidingWallGrid(1)) {
 			eye = eye - cameraSpeed*view;
 			at = at - cameraSpeed*view;
-		//}
+		}
 	}
 
 	if (strafeLeft == true)

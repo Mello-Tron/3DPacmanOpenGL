@@ -213,7 +213,7 @@ public:
 		mat4 typical = modelview * Translate(translate) * Scale(1.0, 1.0, 1.0) * RotateZ(mytheta[0]) * RotateX(mytheta[1]) * RotateY(mytheta[1]);
 
 		// ship down the new the projection and viewing matrices
-		glUniformMatrix4fv(uniforms[4], 1, GL_TRUE, identity * Scale(0.25, 0.4, 0.25));
+		glUniformMatrix4fv(uniforms[4], 1, GL_TRUE, identity * Translate(translate) * Scale(0.25, 0.4, 0.25));
 		GL_CHECK_ERRORS
 
 			glUniformMatrix4fv(uniforms[5], 1, GL_TRUE, projection);

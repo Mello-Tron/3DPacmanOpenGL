@@ -35,11 +35,12 @@ float cameraSpeed = 0.011;
 Brick wall(1);
 Brick ground(0);
 tree myTree(0);
-tree myDonald(2);
+tree myDonald(1);
 tree myDonaldClose(1);
 graphic2d screenPic(1);
-vec3 donaldPosition = vec3(56.0, 0.2, 3.0);
-vec3 donaldPosition2 = vec3(21.0, 0.2, 25.0);
+vec3 donaldPosition = vec3(16.5, 0.0, 2.75);
+float donaldXSpeed = 0.5;
+vec3 donaldPosition2 = vec3(26.5, 0.0, 2.75);
 bool drawDonaldCloseFace = false;
 
 //String Map of Maze

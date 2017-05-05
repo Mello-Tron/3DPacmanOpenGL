@@ -64,28 +64,22 @@ void display(void)
 	glCullFace(GL_BACK);
 	drawMaze(maze);
 
-	//draw tree set 1
-	//for (int i = 2; i < 54; i += 2) {
-	//	myTree.draw(theta, vec3(float(i), 0.0, 1.5));
-	//}
-
-	//draw tree set 2
-	//for (int i = 14; i < 26; i += 2) {
-	//	myTree.draw(theta, vec3(float(i), 0.0, 4.5));
-	//}
+	glDisable(GL_CULL_FACE);
 
 	//draw donald 1
-	if (!drawDonaldCloseFace) {
-		myDonald.draw(theta, donaldPosition);
-		myDonald.draw(theta, donaldPosition2);
+	vec3 nextDonaldPosition = vec3(donaldPosition.x + donaldXSpeed, donaldPosition.y, donaldPosition.z);
+	if (!positionIsCollidingWallGrid(nextDonaldPosition.x, nextDonaldPosition.y, nextDonaldPosition.z)) {
+		donaldPosition = nextDonaldPosition;
 	}
 	else {
-		myDonaldClose.draw(theta, donaldPosition);
-		myDonaldClose.draw(theta, donaldPosition2);
+		donaldXSpeed *= -1;
 	}
+	myDonald.draw(theta, donaldPosition);
+
+	glEnable(GL_CULL_FACE);
 
 	//Attempt at 2d graphic
-	vec3 screenPicPosition(at.x, at.y, at.z);
+	vec3 screenPicPosition(-1.4, 0.8, 0.0);
 	screenPic.draw(theta, screenPicPosition);
 
 	// swap the buffers
