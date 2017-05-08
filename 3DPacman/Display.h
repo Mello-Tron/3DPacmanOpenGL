@@ -66,40 +66,38 @@ void display(void)
 
 	glDisable(GL_CULL_FACE);
 
+	//draw a test dot
+	myDot.draw(theta, vec3(8.5, 0.0, 2.75));
+
 	//draw donald 1
 	vec3 nextDonaldPosition = vec3(donaldPosition.x + donaldXSpeed, donaldPosition.y, donaldPosition.z);
 	if (!positionIsCollidingWallGrid(nextDonaldPosition.x, nextDonaldPosition.y, nextDonaldPosition.z)) {
 		donaldPosition = nextDonaldPosition;
 	}
 	else {
-		float distanceBetween = pow((donaldPosition.x - eye.x), 2) + pow((donaldPosition.y - eye.y), 2) + pow((donaldPosition.z - eye.z), 2);
-		distanceBetween /= 10.0;
-		//distanceBetween = log(distanceBetween) * 11.0;
-		//distanceBetween *= log(distanceBetween) / 100.0;
 		donaldXSpeed *= -1;
-		float volume = 100.0;
-		//if (distanceBetween > 100.0)
-		//	volume = 0.0;
-		//else {
-		float newVolume = volume - distanceBetween;
-		if (newVolume > 50.0) {
-			//volume = (100.0 + newVolume) / 2;
-			volume = newVolume;
-		}
-		else if (newVolume < 50.0) {
-			volume = newVolume / 3;
-		}
-		else
-			volume = newVolume;
 
-		if (volume < 1.1)
-			volume = 0.0;
-		else
-			volume = 12.04*log2(volume) + 20.0;
+		//SOUND EQUATIONS
+		//float distanceBetween = pow((donaldPosition.x - eye.x), 2) + pow((donaldPosition.y - eye.y), 2) + pow((donaldPosition.z - eye.z), 2);
+		//distanceBetween /= 10.0;
+		//float volume = 100.0;
+		//float newVolume = volume - distanceBetween;
+		//if (newVolume > 50.0) {
+		//	volume = newVolume;
 		//}
-		//cout << volume << endl;
-		sound2.setVolume(volume);
-		sound2.play();
+		//else if (newVolume < 50.0) {
+		//	volume = newVolume / 3;
+		//}
+		//else
+		//	volume = newVolume;
+
+		//if (volume < 1.1)
+		//	volume = 0.0;
+		//else
+		//	volume = 12.04*log2(volume) + 20.0;
+
+		//sound2.setVolume(volume);
+		//sound2.play();
 	}
 	myDonald.draw(theta, donaldPosition);
 

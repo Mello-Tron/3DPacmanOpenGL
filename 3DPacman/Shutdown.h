@@ -8,7 +8,7 @@ void OnShutdown()
 
 	ground.cleanup();
 	wall.cleanup();
-	myTree.cleanup();
+	myDot.cleanup();
 	myDonald.cleanup();
 	myDonaldClose.cleanup();
 	screenPic.cleanup();

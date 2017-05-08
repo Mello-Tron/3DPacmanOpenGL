@@ -17,7 +17,7 @@ void init()
 	go_skybox.init();
 	wall.init();
 	ground.init();
-	myTree.init();
+	myDot.init();
 	myDonald.init();
 	myDonaldClose.init();
 	screenPic.init();

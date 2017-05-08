@@ -198,7 +198,7 @@ public:
 		start_shader();
 
 		GLfloat myScaleX = 0.5;
-		GLfloat myScaleY = 1.5;
+		GLfloat myScaleY = 0.75;
 		GLfloat myScaleZ = 0.5;
 
 		if (textureChoice > 0) {

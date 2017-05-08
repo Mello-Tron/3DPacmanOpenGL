@@ -36,7 +36,7 @@ float cameraSpeed = 0.011;
 //Maze Objects
 Brick wall(1);
 Brick ground(0);
-tree myTree(0);
+tree myDot(0);
 tree myDonald(1);
 tree myDonaldClose(1);
 graphic2d screenPic(1);
