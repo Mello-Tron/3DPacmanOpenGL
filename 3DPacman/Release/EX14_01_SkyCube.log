@@ -18,6 +18,7 @@ c:\users\pherbert17\documents\github\3dpacmanopengl\3dpacman\GraphicsObject.h(15
 c:\users\pherbert17\documents\github\3dpacmanopengl\3dpacman\GraphicsObject.h(154): warning C4018: '<': signed/unsigned mismatch
 c:\users\pherbert17\documents\github\3dpacmanopengl\3dpacman\tree.h(123): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
 c:\users\pherbert17\documents\github\3dpacmanopengl\3dpacman\tree.h(181): warning C4305: 'argument': truncation from 'double' to 'GLclampf'
+c:\users\pherbert17\documents\github\3dpacmanopengl\3dpacman\tree.h(201): warning C4305: 'initializing': truncation from 'double' to 'GLfloat'
 c:\users\pherbert17\documents\github\3dpacmanopengl\3dpacman\Zebra.h(150): warning C4305: 'argument': truncation from 'double' to 'GLclampf'
 c:\users\pherbert17\documents\github\3dpacmanopengl\3dpacman\Zebra.h(173): warning C4305: 'argument': truncation from 'double' to 'GLclampf'
 c:\users\pherbert17\documents\github\3dpacmanopengl\3dpacman\Graphic2d.h(123): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
@@ -27,8 +28,9 @@ c:\users\pherbert17\documents\github\3dpacmanopengl\3dpacman\Globals.h(11): warn
 c:\users\pherbert17\documents\github\3dpacmanopengl\3dpacman\Globals.h(28): warning C4305: 'initializing': truncation from 'double' to 'GLfloat'
 c:\users\pherbert17\documents\github\3dpacmanopengl\3dpacman\Globals.h(34): warning C4305: 'initializing': truncation from 'double' to 'float'
 c:\users\pherbert17\documents\github\3dpacmanopengl\3dpacman\Maze.h(13): warning C4018: '<': signed/unsigned mismatch
-c:\users\pherbert17\documents\github\3dpacmanopengl\3dpacman\Maze.h(40): warning C4018: '<': signed/unsigned mismatch
-c:\users\pherbert17\documents\github\3dpacmanopengl\3dpacman\Maze.h(56): warning C4018: '<': signed/unsigned mismatch
+c:\users\pherbert17\documents\github\3dpacmanopengl\3dpacman\Maze.h(31): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+c:\users\pherbert17\documents\github\3dpacmanopengl\3dpacman\Maze.h(50): warning C4018: '<': signed/unsigned mismatch
+c:\users\pherbert17\documents\github\3dpacmanopengl\3dpacman\Maze.h(66): warning C4018: '<': signed/unsigned mismatch
 c:\users\pherbert17\documents\github\3dpacmanopengl\3dpacman\Mouse.h(16): warning C4305: 'initializing': truncation from 'double' to 'float'
 c:\users\pherbert17\documents\github\3dpacmanopengl\3dpacman\Mouse.h(18): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
 c:\users\pherbert17\documents\github\3dpacmanopengl\3dpacman\Mouse.h(22): warning C4244: 'argument': conversion from 'double' to 'const GLfloat', possible loss of data
@@ -54,12 +56,13 @@ c:\users\pherbert17\documents\github\3dpacmanopengl\3dpacman\Display.h(32): warn
 c:\users\pherbert17\documents\github\3dpacmanopengl\3dpacman\Display.h(59): warning C4305: '+=': truncation from 'double' to 'GLfloat'
 c:\users\pherbert17\documents\github\3dpacmanopengl\3dpacman\Display.h(60): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
 c:\users\pherbert17\documents\github\3dpacmanopengl\3dpacman\Display.h(60): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
-c:\users\pherbert17\documents\github\3dpacmanopengl\3dpacman\Display.h(101): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-c:\users\pherbert17\documents\github\3dpacmanopengl\3dpacman\Display.h(112): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\users\pherbert17\documents\github\3dpacmanopengl\3dpacman\Display.h(104): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\users\pherbert17\documents\github\3dpacmanopengl\3dpacman\Display.h(108): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+c:\users\pherbert17\documents\github\3dpacmanopengl\3dpacman\Display.h(108): warning C4305: 'argument': truncation from 'double' to 'float'
   Generating code
-  2 of 403 functions ( 0.5%) were compiled, the rest were copied from previous compilation.
+  2 of 401 functions ( 0.5%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
-    1 functions had inline decision re-evaluated but remain unchanged
+    0 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
   EX14_01_SkyCube.vcxproj -> C:\Users\pherbert17\Documents\GitHub\3DPacmanOpenGL\3DPacman\Release\EX14_01_SkyCube.exe
   EX14_01_SkyCube.vcxproj -> C:\Users\pherbert17\Documents\GitHub\3DPacmanOpenGL\3DPacman\Release\EX14_01_SkyCube.pdb (Full PDB)

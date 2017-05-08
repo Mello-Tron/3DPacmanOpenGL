@@ -66,9 +66,6 @@ void display(void)
 
 	glDisable(GL_CULL_FACE);
 
-	//draw a test dot
-	myDot.draw(theta, vec3(8.5, 0.0, 2.75));
-
 	//draw donald 1
 	vec3 nextDonaldPosition = vec3(donaldPosition.x + donaldXSpeed, donaldPosition.y, donaldPosition.z);
 	if (!positionIsCollidingWallGrid(nextDonaldPosition.x, nextDonaldPosition.y, nextDonaldPosition.z)) {
@@ -106,6 +103,9 @@ void display(void)
 	//Attempt at 2d graphic
 	vec3 screenPicPosition(-1.4, 0.8, 0.0);
 	screenPic.draw(theta, screenPicPosition);
+
+	//Draw Score
+	displayText(-0.9, -0.9, 256.0, 256.0, 256.0, "Score: 0");
 
 	// swap the buffers
 	glutSwapBuffers();

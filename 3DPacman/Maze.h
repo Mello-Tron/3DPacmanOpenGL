@@ -21,6 +21,16 @@ void drawMaze(string &maze) {
 		}
 		else if (maze[i] == '.') {
 			ground.draw(theta, vec3(posX, -2.0, posZ));
+
+			posX += 2.0;
+		}
+		else if (maze[i] == 'D') {
+			ground.draw(theta, vec3(posX, -2.0, posZ));
+
+			glDisable(GL_CULL_FACE);
+			myDot.draw(theta, vec3(posX + 1.0, 0.0, posZ + 1.0));
+			glEnable(GL_CULL_FACE);
+
 			posX += 2.0;
 		}
 		else {
