@@ -66,6 +66,11 @@ void display(void)
 
 	glDisable(GL_CULL_FACE);
 
+	//draw dots
+	for (int i = 0; i < dots.size(); i++) {
+		dots[i].display();
+	}
+
 	//draw donald 1
 	vec3 nextDonaldPosition = vec3(donaldPosition.x + donaldXSpeed, donaldPosition.y, donaldPosition.z);
 	if (!positionIsCollidingWallGrid(nextDonaldPosition.x, nextDonaldPosition.y, nextDonaldPosition.z)) {

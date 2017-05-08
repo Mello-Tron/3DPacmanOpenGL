@@ -98,6 +98,7 @@
     <None Include="vshader72.glsl" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Dot.h" />
     <ClInclude Include="Graphic2d.h" />
     <ClInclude Include="Angel.h" />
     <ClInclude Include="Brick.h" />

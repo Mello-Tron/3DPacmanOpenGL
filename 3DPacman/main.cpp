@@ -30,6 +30,7 @@ mat4 projection, modelview, translate;
 #include "Camera.h"
 #include "Setup.h"
 #include "Shutdown.h"
+#include "Dot.h"
 #include "Display.h"
 
 //Audio
@@ -70,6 +71,9 @@ int main(int argc, char **argv)
 	sound2.setBuffer(buffer2);
 
 	sound.play();
+
+	//populateDots
+	populateDots(maze);
 
     glutMainLoop();
 
