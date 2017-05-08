@@ -117,7 +117,7 @@ string row[61] = {
 
 void CreateStringMaze(string row[])
 {
-	for (int i = 0; i < 61; i++)
+	for (int i = 0; i < 60; i++)
 	{
 		maze = maze + row[i];
 	}
