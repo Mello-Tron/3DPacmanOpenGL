@@ -5,11 +5,11 @@
 // Purpose: Returns true if there is a collision between the given position and any wall (GRID system)
 // Author: Patrick H. 5/4
 //////////////////////////////////////////////////////////////////////////////////////////////
-bool positionIsCollidingWallGrid(float myX, float myY, float myZ) {
+bool positionIsCollidingWallGrid(float myX, float myY, float myZ, float size) {
 	float posX = 0.0;
 	float posZ = 0.0;
 	bool isCollision = false;
-	float size = 1.8;
+	//float size = 1.8;
 	float size2 = 6.5;
 
 	for (int i = 0; i < maze.size(); i++) {
@@ -87,6 +87,39 @@ bool cameraIsCollidingWallGrid(int direction) {
 	}
 	else
 		drawDonaldCloseFace = false;
+
+	return isCollision;
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////////////
+// Purpose: Returns true if there is a collision between where the camera is going and a position
+//////////////////////////////////////////////////////////////////////////////////////////////////
+bool cameraIsCollidingPosition(int direction, float posX, float posZ, float size) {
+	//float posX = 0.0;
+	//float posZ = 0.0;
+	bool isCollision = false;
+	//float size = 1.8;
+	//float size2 = 6.5;
+
+	vec4 eye2;
+
+	switch (direction) {
+	case 0: //forward
+		eye2 = eye + cameraSpeed*view;
+		break;
+	case 1: //reverse
+		eye2 = eye - cameraSpeed*view;
+		break;
+	default:
+		//invalid
+		break;
+	}
+
+	vec3 nextPos = (eye2.x, eye2.y, eye2.z);
+
+	if (eye2.x < (posX + size) && eye2.x >(posX - size) && eye2.z < (posZ + size) && eye2.z >(posZ - size)) {
+		isCollision = true;
+	}
 
 	return isCollision;
 }

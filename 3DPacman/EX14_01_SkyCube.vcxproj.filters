@@ -113,5 +113,8 @@
     <ClInclude Include="Graphic2d.h">
       <Filter>Header Files\Custom Headers</Filter>
     </ClInclude>
+    <ClInclude Include="Dot.h">
+      <Filter>Header Files\Custom Headers</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

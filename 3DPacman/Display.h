@@ -30,14 +30,14 @@ void drawHealthBar(float health) {
 }
 
 //2d Text
-void displayText(float x, float y, int r, int g, int b, const char *string) {
+void displayText(float x, float y, GLfloat r, GLfloat g, GLfloat b, string mystring) {
 	glDisable(GL_DEPTH_TEST);
-	int j = strlen(string);
+	int j = mystring.length();
 
 	glColor3f(r, g, b);
 	glRasterPos2f(x, y);
 	for (int i = 0; i < j; i++) {
-		glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_24, string[i]);
+		glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_24, mystring[i]);
 	}
 	glEnable(GL_DEPTH_TEST);
 }
@@ -73,13 +73,32 @@ void display(void)
 
 	glDisable(GL_CULL_FACE);
 
-	//draw a test dot
-	myDot.draw(theta, vec3(8.5, 0.0, 2.75));
+	//draw dots
+	int direction = -1;
+	if (goForward == true)
+		direction = 0;
+	else if (goReverse == true)
+		direction = 1;
+		
+	for (int i = 0; i < dots.size(); i++) {
+		if (direction != -1) {
+			//cout << "direction = " << direction << endl;
+			if (cameraIsCollidingPosition(direction, dots[i].pos.x, dots[i].pos.z, 0.4) && dots[i].isVisible) {
+				//cout << "HIT" << endl;
+				soundPacmanChomp.play();
+				dots[i].isVisible = false;
+				score += 1;
+			}
+		}
+
+		dots[i].display();
+	}
 
 	//draw donald 1
 	vec3 nextDonaldPosition = vec3(donaldPosition.x + donaldXSpeed, donaldPosition.y, donaldPosition.z);
-	if (!positionIsCollidingWallGrid(nextDonaldPosition.x, nextDonaldPosition.y, nextDonaldPosition.z)) {
-			donaldPosition = nextDonaldPosition;
+	if (!positionIsCollidingWallGrid(nextDonaldPosition.x, nextDonaldPosition.y, nextDonaldPosition.z, 1.8)) {
+		donaldPosition = nextDonaldPosition;
+
 	}
 	else {
 		//Bounce Back X
@@ -143,9 +162,17 @@ void display(void)
 
 	glEnable(GL_CULL_FACE);
 
-	//Attempt at 2d graphic
-	vec3 screenPicPosition(-1.4, 0.8, 0.0);
+	//Draw health
+	vec3 screenPicPosition(-1.45, 0.8, 0.0);
 	screenPic.draw(theta, screenPicPosition);
+	vec3 screenPicPosition2(-1.25, 0.8, 0.0);
+	screenPic.draw(theta, screenPicPosition2);
+	vec3 screenPicPosition3(-1.05, 0.8, 0.0);
+	screenPic.draw(theta, screenPicPosition3);
+
+	//Draw Score
+	string scoreText = "Score: " + to_string(score);
+	displayText(-0.94, 0.6, 0.5, 0.1, 1.0, scoreText);
 
 	// swap the buffers
 	glutSwapBuffers();

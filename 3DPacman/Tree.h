@@ -197,9 +197,9 @@ public:
 	{
 		start_shader();
 
-		GLfloat myScaleX = 0.5;
-		GLfloat myScaleY = 0.75;
-		GLfloat myScaleZ = 0.5;
+		GLfloat myScaleX = 0.25;
+		GLfloat myScaleY = 0.35;
+		GLfloat myScaleZ = 0.25;
 
 		if (textureChoice > 0) {
 			//Donald!

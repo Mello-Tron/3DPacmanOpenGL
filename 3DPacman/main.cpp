@@ -31,6 +31,7 @@ mat4 projection, modelview, translate;
 #include "Camera.h"
 #include "Setup.h"
 #include "Shutdown.h"
+#include "Dot.h"
 #include "Display.h"
 
 //Audio
@@ -70,7 +71,15 @@ int main(int argc, char **argv)
 		return -1;
 	sound2.setBuffer(buffer2);
 
+	sf::SoundBuffer buffer3;
+	if (!buffer3.loadFromFile("pacman_chomp.wav"))
+		return -1;
+	soundPacmanChomp.setBuffer(buffer3);
+
 	sound.play();
+
+	//populateDots
+	populateDots(maze);
 
     glutMainLoop();
 
