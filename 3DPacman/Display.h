@@ -1,6 +1,11 @@
 #ifndef DISPLAY_H
 #define DISPLAY_H
 
+int randomator()
+{
+	srand((unsigned)time(0));
+	return 0;
+}
 //2d health bar
 void drawHealthBar(float health) {
 	glDisable(GL_DEPTH_TEST);
@@ -44,6 +49,8 @@ void displayText(float x, float y, int r, int g, int b, const char *string) {
 //////////////////////////////////////////////////////////////////////////////////////////////
 void display(void)
 {
+	randomator();
+	int rand_int;
 	glClearColor(1.0, 1.0, 1.0, 1.0);
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);  /*clear the window */
 
@@ -72,10 +79,43 @@ void display(void)
 	//draw donald 1
 	vec3 nextDonaldPosition = vec3(donaldPosition.x + donaldXSpeed, donaldPosition.y, donaldPosition.z);
 	if (!positionIsCollidingWallGrid(nextDonaldPosition.x, nextDonaldPosition.y, nextDonaldPosition.z)) {
-		donaldPosition = nextDonaldPosition;
+			donaldPosition = nextDonaldPosition;
 	}
 	else {
-		donaldXSpeed *= -1;
+		//Bounce Back X
+		rand_int = rand() % 4;
+		if (rand_int == 0)
+		{
+			donaldXSpeed *= -1;
+			nextDonaldPosition = vec3(donaldPosition.x + donaldXSpeed, donaldPosition.y, donaldPosition.z);
+			donaldPosition = nextDonaldPosition;
+		}
+		if (rand_int == 1)
+		{
+			nextDonaldPosition = vec3(donaldPosition.x + donaldXSpeed, donaldPosition.y, donaldPosition.z);
+			if (positionIsCollidingWallGrid(nextDonaldPosition.x, nextDonaldPosition.y, nextDonaldPosition.z))
+			{
+				donaldXSpeed *= -1;
+				nextDonaldPosition = vec3(donaldPosition.x + donaldXSpeed, donaldPosition.y, donaldPosition.z);
+			}
+			donaldPosition = nextDonaldPosition;
+		}
+		else if (rand_int == 2)
+		{
+			nextDonaldPosition = vec3(donaldPosition.x, donaldPosition.y, donaldPosition.z + donaldXSpeed);
+			if (positionIsCollidingWallGrid(nextDonaldPosition.x, nextDonaldPosition.y, nextDonaldPosition.z))
+			{
+				donaldXSpeed *= -1;
+				nextDonaldPosition = vec3(donaldPosition.x, donaldPosition.y, donaldPosition.z + donaldXSpeed);
+			}
+			donaldPosition = nextDonaldPosition;
+		}
+		else if (rand_int == 3)
+		{
+			donaldXSpeed *= -1;
+			nextDonaldPosition = vec3(donaldPosition.x, donaldPosition.y, donaldPosition.z + donaldXSpeed);
+			donaldPosition = nextDonaldPosition;
+		}
 
 		//SOUND EQUATIONS
 		//float distanceBetween = pow((donaldPosition.x - eye.x), 2) + pow((donaldPosition.y - eye.y), 2) + pow((donaldPosition.z - eye.z), 2);

@@ -4,6 +4,7 @@
 #include <cassert>
 #include <vector>
 #include <cstdlib>
+#include <ctime>
 using namespace std;
 
 #include "Angel.h";
