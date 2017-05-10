@@ -21,9 +21,11 @@ public:
 	}
 
 	void display() {
-		glDisable(GL_CULL_FACE);
-		myDot.draw(theta, pos);
-		glEnable(GL_CULL_FACE);
+		if (isVisible) {
+			glDisable(GL_CULL_FACE);
+			myDot.draw(theta, pos);
+			glEnable(GL_CULL_FACE);
+		}
 	}
 };
 

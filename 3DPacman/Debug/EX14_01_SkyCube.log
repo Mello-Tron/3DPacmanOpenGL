@@ -18,32 +18,44 @@ c:\users\pherbert17\documents\github\3dpacmanopengl\3dpacman\graphicsobject.h(15
 c:\users\pherbert17\documents\github\3dpacmanopengl\3dpacman\graphicsobject.h(154): warning C4018: '<': signed/unsigned mismatch
 c:\users\pherbert17\documents\github\3dpacmanopengl\3dpacman\tree.h(123): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
 c:\users\pherbert17\documents\github\3dpacmanopengl\3dpacman\tree.h(181): warning C4305: 'argument': truncation from 'double' to 'GLclampf'
+c:\users\pherbert17\documents\github\3dpacmanopengl\3dpacman\tree.h(201): warning C4305: 'initializing': truncation from 'double' to 'GLfloat'
 c:\users\pherbert17\documents\github\3dpacmanopengl\3dpacman\zebra.h(150): warning C4305: 'argument': truncation from 'double' to 'GLclampf'
 c:\users\pherbert17\documents\github\3dpacmanopengl\3dpacman\zebra.h(173): warning C4305: 'argument': truncation from 'double' to 'GLclampf'
 c:\users\pherbert17\documents\github\3dpacmanopengl\3dpacman\graphic2d.h(123): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
 c:\users\pherbert17\documents\github\3dpacmanopengl\3dpacman\graphic2d.h(181): warning C4305: 'argument': truncation from 'double' to 'GLclampf'
-c:\users\pherbert17\documents\github\3dpacmanopengl\3dpacman\globals.h(9): warning C4305: 'initializing': truncation from 'double' to 'GLfloat'
-c:\users\pherbert17\documents\github\3dpacmanopengl\3dpacman\globals.h(26): warning C4305: 'initializing': truncation from 'double' to 'GLfloat'
-c:\users\pherbert17\documents\github\3dpacmanopengl\3dpacman\globals.h(32): warning C4305: 'initializing': truncation from 'double' to 'float'
-c:\users\pherbert17\documents\github\3dpacmanopengl\3dpacman\globals.h(41): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-c:\users\pherbert17\documents\github\3dpacmanopengl\3dpacman\globals.h(42): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-c:\users\pherbert17\documents\github\3dpacmanopengl\3dpacman\maze.h(13): warning C4018: '<': signed/unsigned mismatch
-c:\users\pherbert17\documents\github\3dpacmanopengl\3dpacman\maze.h(40): warning C4018: '<': signed/unsigned mismatch
-c:\users\pherbert17\documents\github\3dpacmanopengl\3dpacman\maze.h(56): warning C4018: '<': signed/unsigned mismatch
-c:\users\pherbert17\documents\github\3dpacmanopengl\3dpacman\mouse.h(16): warning C4305: 'initializing': truncation from 'double' to 'float'
-c:\users\pherbert17\documents\github\3dpacmanopengl\3dpacman\camera.h(13): warning C4305: 'initializing': truncation from 'double' to 'float'
-c:\users\pherbert17\documents\github\3dpacmanopengl\3dpacman\camera.h(32): warning C4018: '<': signed/unsigned mismatch
-c:\users\pherbert17\documents\github\3dpacmanopengl\3dpacman\camera.h(70): warning C4305: 'initializing': truncation from 'double' to 'float'
-c:\users\pherbert17\documents\github\3dpacmanopengl\3dpacman\camera.h(88): warning C4018: '<': signed/unsigned mismatch
-c:\users\pherbert17\documents\github\3dpacmanopengl\3dpacman\camera.h(91): warning C4018: '<': signed/unsigned mismatch
-c:\users\pherbert17\documents\github\3dpacmanopengl\3dpacman\camera.h(125): warning C4018: '<': signed/unsigned mismatch
-c:\users\pherbert17\documents\github\3dpacmanopengl\3dpacman\display.h(9): warning C4305: 'initializing': truncation from 'double' to 'float'
-c:\users\pherbert17\documents\github\3dpacmanopengl\3dpacman\display.h(10): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-c:\users\pherbert17\documents\github\3dpacmanopengl\3dpacman\display.h(10): warning C4244: 'initializing': conversion from 'double' to 'const float', possible loss of data
-c:\users\pherbert17\documents\github\3dpacmanopengl\3dpacman\display.h(13): warning C4305: 'initializing': truncation from 'double' to 'float'
-c:\users\pherbert17\documents\github\3dpacmanopengl\3dpacman\display.h(32): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
-c:\users\pherbert17\documents\github\3dpacmanopengl\3dpacman\display.h(59): warning C4305: '+=': truncation from 'double' to 'GLfloat'
-c:\users\pherbert17\documents\github\3dpacmanopengl\3dpacman\display.h(60): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
-c:\users\pherbert17\documents\github\3dpacmanopengl\3dpacman\display.h(60): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
-  EX14_01_SkyCube.vcxproj -> C:\Users\pherbert17\Documents\GitHub\3DPacmanOpenGL\3DPacman\Debug\EX14_01_SkyCube.exe
-  EX14_01_SkyCube.vcxproj -> C:\Users\pherbert17\Documents\GitHub\3DPacmanOpenGL\3DPacman\Debug\EX14_01_SkyCube.pdb (Full PDB)
+c:\users\pherbert17\documents\github\3dpacmanopengl\3dpacman\graphic2d.h(216): warning C4305: 'argument': truncation from 'double' to 'const GLfloat'
+c:\users\pherbert17\documents\github\3dpacmanopengl\3dpacman\globals.h(4): fatal error C1083: Cannot open include file: 'SFML/Audio.hpp': No such file or directory
+  MyLoadBitmap.cpp
+c:\users\pherbert17\documents\github\3dpacmanopengl\3dpacman\angel.h(63): warning C4305: 'initializing': truncation from 'double' to 'GLfloat'
+c:\users\pherbert17\documents\github\3dpacmanopengl\3dpacman\mat.h(792): warning C4244: '=': conversion from 'double' to 'GLfloat', possible loss of data
+c:\users\pherbert17\documents\github\3dpacmanopengl\3dpacman\mat.h(793): warning C4244: '=': conversion from 'double' to 'GLfloat', possible loss of data
+c:\users\pherbert17\documents\github\3dpacmanopengl\3dpacman\mat.h(794): warning C4244: '=': conversion from 'double' to 'GLfloat', possible loss of data
+c:\users\pherbert17\documents\github\3dpacmanopengl\3dpacman\mat.h(815): warning C4244: '=': conversion from 'double' to 'GLfloat', possible loss of data
+c:\users\pherbert17\documents\github\3dpacmanopengl\3dpacman\mat.h(817): warning C4244: '=': conversion from 'double' to 'GLfloat', possible loss of data
+c:\users\pherbert17\documents\github\3dpacmanopengl\3dpacman\mat.h(820): warning C4244: '=': conversion from 'double' to 'GLfloat', possible loss of data
+c:\users\pherbert17\documents\github\3dpacmanopengl\3dpacman\mat.h(836): warning C4244: '=': conversion from 'double' to 'GLfloat', possible loss of data
+c:\users\pherbert17\documents\github\3dpacmanopengl\3dpacman\myloadbitmap.cpp(48): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(205): note: see declaration of 'fopen'
+  LoadBitmap.cpp
+c:\users\pherbert17\documents\github\3dpacmanopengl\3dpacman\angel.h(63): warning C4305: 'initializing': truncation from 'double' to 'GLfloat'
+c:\users\pherbert17\documents\github\3dpacmanopengl\3dpacman\mat.h(792): warning C4244: '=': conversion from 'double' to 'GLfloat', possible loss of data
+c:\users\pherbert17\documents\github\3dpacmanopengl\3dpacman\mat.h(793): warning C4244: '=': conversion from 'double' to 'GLfloat', possible loss of data
+c:\users\pherbert17\documents\github\3dpacmanopengl\3dpacman\mat.h(794): warning C4244: '=': conversion from 'double' to 'GLfloat', possible loss of data
+c:\users\pherbert17\documents\github\3dpacmanopengl\3dpacman\mat.h(815): warning C4244: '=': conversion from 'double' to 'GLfloat', possible loss of data
+c:\users\pherbert17\documents\github\3dpacmanopengl\3dpacman\mat.h(817): warning C4244: '=': conversion from 'double' to 'GLfloat', possible loss of data
+c:\users\pherbert17\documents\github\3dpacmanopengl\3dpacman\mat.h(820): warning C4244: '=': conversion from 'double' to 'GLfloat', possible loss of data
+c:\users\pherbert17\documents\github\3dpacmanopengl\3dpacman\mat.h(836): warning C4244: '=': conversion from 'double' to 'GLfloat', possible loss of data
+c:\users\pherbert17\documents\github\3dpacmanopengl\3dpacman\loadbitmap.cpp(52): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(205): note: see declaration of 'fopen'
+  InitShader.cpp
+c:\users\pherbert17\documents\github\3dpacmanopengl\3dpacman\angel.h(63): warning C4305: 'initializing': truncation from 'double' to 'GLfloat'
+c:\users\pherbert17\documents\github\3dpacmanopengl\3dpacman\mat.h(792): warning C4244: '=': conversion from 'double' to 'GLfloat', possible loss of data
+c:\users\pherbert17\documents\github\3dpacmanopengl\3dpacman\mat.h(793): warning C4244: '=': conversion from 'double' to 'GLfloat', possible loss of data
+c:\users\pherbert17\documents\github\3dpacmanopengl\3dpacman\mat.h(794): warning C4244: '=': conversion from 'double' to 'GLfloat', possible loss of data
+c:\users\pherbert17\documents\github\3dpacmanopengl\3dpacman\mat.h(815): warning C4244: '=': conversion from 'double' to 'GLfloat', possible loss of data
+c:\users\pherbert17\documents\github\3dpacmanopengl\3dpacman\mat.h(817): warning C4244: '=': conversion from 'double' to 'GLfloat', possible loss of data
+c:\users\pherbert17\documents\github\3dpacmanopengl\3dpacman\mat.h(820): warning C4244: '=': conversion from 'double' to 'GLfloat', possible loss of data
+c:\users\pherbert17\documents\github\3dpacmanopengl\3dpacman\mat.h(836): warning C4244: '=': conversion from 'double' to 'GLfloat', possible loss of data
+c:\users\pherbert17\documents\github\3dpacmanopengl\3dpacman\initshader.cpp(10): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(205): note: see declaration of 'fopen'
+  Generating Code...

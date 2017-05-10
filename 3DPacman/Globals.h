@@ -47,6 +47,9 @@ bool drawDonaldCloseFace = false;
 
 string maze;
 
+//Game Logic
+int score = 0;
+
 //Sound
 sf::Sound sound;
 sf::Sound sound2;
