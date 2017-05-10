@@ -73,27 +73,6 @@ void display(void)
 
 	glDisable(GL_CULL_FACE);
 
-	//draw dots
-	int direction = -1;
-	if (goForward == true)
-		direction = 0;
-	else if (goReverse == true)
-		direction = 1;
-		
-	for (int i = 0; i < dots.size(); i++) {
-		if (direction != -1) {
-			//cout << "direction = " << direction << endl;
-			if (cameraIsCollidingPosition(direction, dots[i].pos.x, dots[i].pos.z, 0.4) && dots[i].isVisible) {
-				//cout << "HIT" << endl;
-				soundPacmanChomp.play();
-				dots[i].isVisible = false;
-				score += 1;
-			}
-		}
-
-		dots[i].display();
-	}
-
 	//draw donald 1
 	vec3 nextDonaldPosition = vec3(donaldPosition.x + donaldXSpeed, donaldPosition.y, donaldPosition.z);
 	if (!positionIsCollidingWallGrid(nextDonaldPosition.x, nextDonaldPosition.y, nextDonaldPosition.z, 1.8)) {
@@ -112,7 +91,7 @@ void display(void)
 		if (rand_int == 1)
 		{
 			nextDonaldPosition = vec3(donaldPosition.x + donaldXSpeed, donaldPosition.y, donaldPosition.z);
-			if (positionIsCollidingWallGrid(nextDonaldPosition.x, nextDonaldPosition.y, nextDonaldPosition.z))
+			if (positionIsCollidingWallGrid(nextDonaldPosition.x, nextDonaldPosition.y, nextDonaldPosition.z, 1.8))
 			{
 				donaldXSpeed *= -1;
 				nextDonaldPosition = vec3(donaldPosition.x + donaldXSpeed, donaldPosition.y, donaldPosition.z);
@@ -122,7 +101,7 @@ void display(void)
 		else if (rand_int == 2)
 		{
 			nextDonaldPosition = vec3(donaldPosition.x, donaldPosition.y, donaldPosition.z + donaldXSpeed);
-			if (positionIsCollidingWallGrid(nextDonaldPosition.x, nextDonaldPosition.y, nextDonaldPosition.z))
+			if (positionIsCollidingWallGrid(nextDonaldPosition.x, nextDonaldPosition.y, nextDonaldPosition.z, 1.8))
 			{
 				donaldXSpeed *= -1;
 				nextDonaldPosition = vec3(donaldPosition.x, donaldPosition.y, donaldPosition.z + donaldXSpeed);
@@ -161,6 +140,27 @@ void display(void)
 	myDonald.draw(theta, donaldPosition);
 
 	glEnable(GL_CULL_FACE);
+
+	//draw dots
+	int direction = -1;
+	if (goForward == true)
+		direction = 0;
+	else if (goReverse == true)
+		direction = 1;
+
+	for (int i = 0; i < dots.size(); i++) {
+		if (direction != -1) {
+			//cout << "direction = " << direction << endl;
+			if (cameraIsCollidingPosition(direction, dots[i].pos.x, dots[i].pos.z, 0.4) && dots[i].isVisible) {
+				//cout << "HIT" << endl;
+				soundPacmanChomp.play();
+				dots[i].isVisible = false;
+				score += 1;
+			}
+		}
+
+		dots[i].display();
+	}
 
 	//Draw health
 	vec3 screenPicPosition(-1.45, 0.8, 0.0);

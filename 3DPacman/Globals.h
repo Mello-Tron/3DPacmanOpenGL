@@ -4,7 +4,7 @@
 #include<SFML/Audio.hpp>
 
 GLfloat  zoom = 1.0;         // Translation factor
-vec4 view(6.5, 5.0, 2.75, 0.0);
+vec4 view(6.5, 0.0, 2.75, 0.0);
 
 GLfloat  fovy = 60.0;		 // Field-of-view in Y direction angle (in degrees)
 GLfloat  aspect = 1.0;       // Viewport aspect ratio
@@ -19,9 +19,9 @@ SkyBox go_skybox;
 GLfloat skyboxAngle = 0.0;
 
 // The Camera
-point4  eye(6.5, 5.0, 2.75, 0.0);
-point4  at(6.5, 5.0, 2.75, 1.0);
-vec4    up(0.0, 6.0, 0.0, 0.0);
+point4  eye(6.5, 0.0, 2.75, 0.0);
+point4  at(6.5, 0.0, 2.75, 1.0);
+vec4    up(0.0, 1.0, 0.0, 0.0);
 point4  ns_eye(6.5, 0.0, 4.75, 1.0);
 point4  ns_at(6.5, 0.0, 3.75, 1.0);
 vec4	ns_view(6.5, 0.0, 1.75, 0.0);

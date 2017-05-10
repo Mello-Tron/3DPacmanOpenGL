@@ -183,7 +183,6 @@ public:
 
 		// Initialize Z-Buffering
 		glEnable(GL_DEPTH_TEST);
-
 	}
 
 	void stop_shader()
