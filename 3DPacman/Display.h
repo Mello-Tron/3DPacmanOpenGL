@@ -25,7 +25,7 @@ void drawHealthBar(float health) {
 }
 
 //2d Text
-void displayText(float x, float y, int r, int g, int b, string mystring) {
+void displayText(float x, float y, GLfloat r, GLfloat g, GLfloat b, string mystring) {
 	glDisable(GL_DEPTH_TEST);
 	int j = mystring.length();
 
@@ -73,13 +73,12 @@ void display(void)
 	else if (goReverse == true)
 		direction = 1;
 		
-
 	for (int i = 0; i < dots.size(); i++) {
 		if (direction != -1) {
 			//cout << "direction = " << direction << endl;
 			if (cameraIsCollidingPosition(direction, dots[i].pos.x, dots[i].pos.z, 0.4) && dots[i].isVisible) {
 				//cout << "HIT" << endl;
-				//play sound
+				soundPacmanChomp.play();
 				dots[i].isVisible = false;
 				score += 1;
 			}
@@ -122,13 +121,17 @@ void display(void)
 
 	glEnable(GL_CULL_FACE);
 
-	//Attempt at 2d graphic
-	vec3 screenPicPosition(-1.4, 0.8, 0.0);
+	//Draw health
+	vec3 screenPicPosition(-1.45, 0.8, 0.0);
 	screenPic.draw(theta, screenPicPosition);
+	vec3 screenPicPosition2(-1.25, 0.8, 0.0);
+	screenPic.draw(theta, screenPicPosition2);
+	vec3 screenPicPosition3(-1.05, 0.8, 0.0);
+	screenPic.draw(theta, screenPicPosition3);
 
 	//Draw Score
 	string scoreText = "Score: " + to_string(score);
-	displayText(-0.9, -0.9, 256.0, 256.0, 256.0, scoreText);
+	displayText(-0.94, 0.6, 0.5, 0.1, 1.0, scoreText);
 
 	// swap the buffers
 	glutSwapBuffers();

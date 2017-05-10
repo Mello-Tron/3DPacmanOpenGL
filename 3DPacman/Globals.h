@@ -53,6 +53,7 @@ int score = 0;
 //Sound
 sf::Sound sound;
 sf::Sound sound2;
+sf::Sound soundPacmanChomp;
 
 //String Map of Maze
 string row[61] = {
