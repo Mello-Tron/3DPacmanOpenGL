@@ -79,15 +79,6 @@ bool cameraIsCollidingWallGrid(int direction) {
 		}
 	}
 
-	if (eye2.x < (donaldPosition.x + size2) && eye2.x >(donaldPosition.x - size2) && eye2.z < (donaldPosition.z + size2) && eye2.z >(donaldPosition.z - size2)) {
-		drawDonaldCloseFace = true;
-	}
-	else if (eye2.x < (donaldPosition2.x + size2) && eye2.x >(donaldPosition2.x - size2) && eye2.z < (donaldPosition2.z + size2) && eye2.z >(donaldPosition2.z - size2)) {
-		drawDonaldCloseFace = true;
-	}
-	else
-		drawDonaldCloseFace = false;
-
 	return isCollision;
 }
 

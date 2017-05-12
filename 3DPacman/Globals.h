@@ -40,9 +40,14 @@ tree myDot(0);
 tree myDonald(1);
 tree myDonaldClose(1);
 graphic2d screenPic(1);
-vec3 donaldPosition = vec3(16.5, 0.0, 2.75);
-float donaldXSpeed = 0.5;
-vec3 donaldPosition2 = vec3(26.5, 0.0, 2.75);
+vec3 donaldPosition1 = vec3(16.5, 0.0, 2.75);
+//vec3 donaldPosition2 = vec3(16.5, 0.0, 2.75);
+//vec3 donaldPosition3 = vec3(16.5, 0.0, 2.75);
+//vec3 donaldPosition4 = vec3(16.5, 0.0, 2.75);
+float donald1XSpeed = 0.2;
+float donald2XSpeed = 0.5;
+float donald3XSpeed = 0.5;
+float donald4XSpeed = 0.5;
 bool drawDonaldCloseFace = false;
 
 string maze;

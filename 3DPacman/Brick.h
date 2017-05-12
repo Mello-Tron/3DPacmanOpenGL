@@ -124,17 +124,17 @@ public:
 		glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_R, GL_CLAMP_TO_EDGE);
 
 		if (textureChoice == 1) {
-			int TexRight = MyLoadCubeMapBitmap("Brick\\brick4.bmp", GL_TEXTURE_CUBE_MAP_POSITIVE_X);
-			int TexLeft = MyLoadCubeMapBitmap("Brick\\brick4.bmp", GL_TEXTURE_CUBE_MAP_NEGATIVE_X);
-			int TexTop = MyLoadCubeMapBitmap("Brick\\brick4.bmp", GL_TEXTURE_CUBE_MAP_POSITIVE_Y);
-			int TexBottom = MyLoadCubeMapBitmap("Brick\\brick4.bmp", GL_TEXTURE_CUBE_MAP_NEGATIVE_Y);
-			int TexFront = MyLoadCubeMapBitmap("Brick\\brick4.bmp", GL_TEXTURE_CUBE_MAP_POSITIVE_Z);
-			int TexBack = MyLoadCubeMapBitmap("Brick\\brick4.bmp", GL_TEXTURE_CUBE_MAP_NEGATIVE_Z);
+			int TexRight = MyLoadCubeMapBitmap("Brick\\NeonBlue2.bmp", GL_TEXTURE_CUBE_MAP_POSITIVE_X);
+			int TexLeft = MyLoadCubeMapBitmap("Brick\\NeonBlue2.bmp", GL_TEXTURE_CUBE_MAP_NEGATIVE_X);
+			int TexTop = MyLoadCubeMapBitmap("Brick\\TopNBottom.bmp", GL_TEXTURE_CUBE_MAP_POSITIVE_Y);
+			int TexBottom = MyLoadCubeMapBitmap("Brick\\TopNBottom.bmp", GL_TEXTURE_CUBE_MAP_NEGATIVE_Y);
+			int TexFront = MyLoadCubeMapBitmap("Brick\\NeonBlue2.bmp", GL_TEXTURE_CUBE_MAP_POSITIVE_Z);
+			int TexBack = MyLoadCubeMapBitmap("Brick\\NeonBlue2.bmp", GL_TEXTURE_CUBE_MAP_NEGATIVE_Z);
 		}
 		else if (textureChoice == 0) {
 			int TexRight = MyLoadCubeMapBitmap("Brick\\brick2.bmp", GL_TEXTURE_CUBE_MAP_POSITIVE_X);
 			int TexLeft = MyLoadCubeMapBitmap("Brick\\brick2.bmp", GL_TEXTURE_CUBE_MAP_NEGATIVE_X);
-			int TexTop = MyLoadCubeMapBitmap("Brick\\brick2.bmp", GL_TEXTURE_CUBE_MAP_POSITIVE_Y);
+			int TexTop = MyLoadCubeMapBitmap("Brick\\TopNBottom.bmp", GL_TEXTURE_CUBE_MAP_POSITIVE_Y);
 			int TexBottom = MyLoadCubeMapBitmap("Brick\\brick2.bmp", GL_TEXTURE_CUBE_MAP_NEGATIVE_Y);
 			int TexFront = MyLoadCubeMapBitmap("Brick\\brick2.bmp", GL_TEXTURE_CUBE_MAP_POSITIVE_Z);
 			int TexBack = MyLoadCubeMapBitmap("Brick\\brick2.bmp", GL_TEXTURE_CUBE_MAP_NEGATIVE_Z);

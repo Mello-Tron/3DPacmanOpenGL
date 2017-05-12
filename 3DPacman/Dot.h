@@ -12,7 +12,7 @@ public:
 
 	Dot() {
 		isVisible = true;
-		pos = vec3(0.0, 0.0, 0.0);
+		pos = vec3(0.0, 0.0 , 0.0);
 	}
 
 	Dot(vec3 _pos) {
@@ -56,7 +56,7 @@ void populateDots(string &maze) {
 
 			//add dot to vector of dots
 			//myDot.draw(theta, vec3(posX + 1.0, 0.0, posZ + 1.0));
-			Dot newDot(vec3(posX + 1.0, 0.0, posZ + 1.0));
+			Dot newDot(vec3(posX + 1.0, -0.25, posZ + 1.0));
 			dots.push_back(newDot);
 
 			posX += 2.0;

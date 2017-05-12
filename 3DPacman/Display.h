@@ -1,6 +1,9 @@
 #ifndef DISPLAY_H
 #define DISPLAY_H
 
+int rand_int;
+int GhostDirection = 1;
+
 int randomator()
 {
 	srand((unsigned)time(0));
@@ -16,6 +19,7 @@ void drawHealthBar(float health) {
 	const float xStart = -1.0;
 	const float yStart = 0.5;
 	const float xWidth = 0.01;
+	
 
 	glBegin(GL_QUADS);
 	glColor3f(0, 0, 0);
@@ -50,7 +54,6 @@ void displayText(float x, float y, GLfloat r, GLfloat g, GLfloat b, string mystr
 void display(void)
 {
 	randomator();
-	int rand_int;
 	glClearColor(1.0, 1.0, 1.0, 1.0);
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);  /*clear the window */
 
@@ -73,71 +76,195 @@ void display(void)
 
 	glDisable(GL_CULL_FACE);
 
-	//draw donald 1
-	vec3 nextDonaldPosition = vec3(donaldPosition.x + donaldXSpeed, donaldPosition.y, donaldPosition.z);
-	if (!positionIsCollidingWallGrid(nextDonaldPosition.x, nextDonaldPosition.y, nextDonaldPosition.z, 1.8)) {
-		donaldPosition = nextDonaldPosition;
 
-	}
-	else {
-		//Bounce Back X
-		rand_int = rand() % 4;
-		if (rand_int == 0)
-		{
-			donaldXSpeed *= -1;
-			nextDonaldPosition = vec3(donaldPosition.x + donaldXSpeed, donaldPosition.y, donaldPosition.z);
-			donaldPosition = nextDonaldPosition;
-		}
-		if (rand_int == 1)
-		{
-			nextDonaldPosition = vec3(donaldPosition.x + donaldXSpeed, donaldPosition.y, donaldPosition.z);
-			if (positionIsCollidingWallGrid(nextDonaldPosition.x, nextDonaldPosition.y, nextDonaldPosition.z, 1.8))
-			{
-				donaldXSpeed *= -1;
-				nextDonaldPosition = vec3(donaldPosition.x + donaldXSpeed, donaldPosition.y, donaldPosition.z);
-			}
-			donaldPosition = nextDonaldPosition;
-		}
-		else if (rand_int == 2)
-		{
-			nextDonaldPosition = vec3(donaldPosition.x, donaldPosition.y, donaldPosition.z + donaldXSpeed);
-			if (positionIsCollidingWallGrid(nextDonaldPosition.x, nextDonaldPosition.y, nextDonaldPosition.z, 1.8))
-			{
-				donaldXSpeed *= -1;
-				nextDonaldPosition = vec3(donaldPosition.x, donaldPosition.y, donaldPosition.z + donaldXSpeed);
-			}
-			donaldPosition = nextDonaldPosition;
-		}
-		else if (rand_int == 3)
-		{
-			donaldXSpeed *= -1;
-			nextDonaldPosition = vec3(donaldPosition.x, donaldPosition.y, donaldPosition.z + donaldXSpeed);
-			donaldPosition = nextDonaldPosition;
-		}
+
+	//draw donald 1
+	vec3 nextDonaldPosition;
+	if(GhostDirection == 1 || GhostDirection == 3)
+		nextDonaldPosition = vec3(donaldPosition1.x + donald1XSpeed,donaldPosition1.y,donaldPosition1.z);
+	if(GhostDirection == 2  || GhostDirection == 4)
+		nextDonaldPosition = vec3(donaldPosition1.x ,donaldPosition1.y,donaldPosition1.z + donald1XSpeed);
+
+	if (!positionIsCollidingWallGrid(nextDonaldPosition.x, nextDonaldPosition.y, nextDonaldPosition.z, 1.8)) {
+		donaldPosition1 = nextDonaldPosition;
 
 		//SOUND EQUATIONS
-		//float distanceBetween = pow((donaldPosition.x - eye.x), 2) + pow((donaldPosition.y - eye.y), 2) + pow((donaldPosition.z - eye.z), 2);
-		//distanceBetween /= 10.0;
-		//float volume = 100.0;
-		//float newVolume = volume - distanceBetween;
-		//if (newVolume > 50.0) {
-		//	volume = newVolume;
-		//}
-		//else if (newVolume < 50.0) {
-		//	volume = newVolume / 3;
-		//}
-		//else
-		//	volume = newVolume;
+		float distanceBetween = pow((donaldPosition1.x - eye.x), 2) + pow((donaldPosition1.y - eye.y), 2) + pow((donaldPosition1.z - eye.z), 2);
+		distanceBetween /= 10.0;
+		float volume = 100.0;
+		float newVolume = volume - distanceBetween;
+		if (newVolume > 50.0) {
+			volume = newVolume;
+		}
+		else if (newVolume < 50.0) {
+			volume = newVolume / 3;
+		}
+		else
+			volume = newVolume;
 
-		//if (volume < 1.1)
-		//	volume = 0.0;
-		//else
-		//	volume = 12.04*log2(volume) + 20.0;
+		if (volume < 1.1)
+			volume = 0.0;
+		else
+			volume = 12.04*log2(volume) + 20.0;
 
-		//sound2.setVolume(volume);
-		//sound2.play();
+		sound2.setVolume(volume);
+		sound2.play();
 	}
-	myDonald.draw(theta, donaldPosition);
+	else {
+		if (GhostDirection == 1)
+		{
+			rand_int = rand() % 10;
+			if (rand_int == 0)
+			{
+				GhostDirection = 3;
+				nextDonaldPosition = vec3(donaldPosition1.x + donald1XSpeed,donaldPosition1.y,donaldPosition1.z);
+				if (positionIsCollidingWallGrid(nextDonaldPosition.x, nextDonaldPosition.y, nextDonaldPosition.z, 1.8))
+				{
+					donald1XSpeed *= -1;
+					nextDonaldPosition = vec3(donaldPosition1.x + donald1XSpeed,donaldPosition1.y,donaldPosition1.z);
+				}
+				donaldPosition1 = nextDonaldPosition;
+			}
+			else if (rand_int > 0 && rand_int <6)
+			{
+				GhostDirection = 4;
+				nextDonaldPosition = vec3(donaldPosition1.x,donaldPosition1.y,donaldPosition1.z - donald1XSpeed);
+				if (positionIsCollidingWallGrid(nextDonaldPosition.x, nextDonaldPosition.y, nextDonaldPosition.z, 1.8))
+				{
+					donald1XSpeed *= -1;
+					nextDonaldPosition = vec3(donaldPosition1.x,donaldPosition1.y,donaldPosition1.z - donald1XSpeed);
+				}
+				donaldPosition1 = nextDonaldPosition;
+			}
+			else if (rand_int >=6 )
+			{
+				GhostDirection = 2;
+				nextDonaldPosition = vec3(donaldPosition1.x,donaldPosition1.y,donaldPosition1.z + donald1XSpeed);
+				if (positionIsCollidingWallGrid(nextDonaldPosition.x, nextDonaldPosition.y, nextDonaldPosition.z, 1.8))
+				{
+					donald1XSpeed *= -1;
+					nextDonaldPosition = vec3(donaldPosition1.x,donaldPosition1.y,donaldPosition1.z + donald1XSpeed);
+				}
+				donaldPosition1 = nextDonaldPosition;
+			}
+		}
+		else if (GhostDirection == 2)
+		{
+			rand_int = rand() % 10;
+			if (rand_int == 0)
+			{
+				GhostDirection = 4;
+				nextDonaldPosition = vec3(donaldPosition1.x,donaldPosition1.y,donaldPosition1.z + donald1XSpeed);
+				if (positionIsCollidingWallGrid(nextDonaldPosition.x, nextDonaldPosition.y, nextDonaldPosition.z, 1.8))
+				{
+					donald1XSpeed *= -1;
+					nextDonaldPosition = vec3(donaldPosition1.x,donaldPosition1.y,donaldPosition1.z + donald1XSpeed);
+				}
+				donaldPosition1 = nextDonaldPosition;
+			}
+			else if (rand_int > 0 && rand_int < 6)
+			{
+				GhostDirection = 3;
+				nextDonaldPosition = vec3(donaldPosition1.x - donald1XSpeed,donaldPosition1.y,donaldPosition1.z);
+				if (positionIsCollidingWallGrid(nextDonaldPosition.x, nextDonaldPosition.y, nextDonaldPosition.z, 1.8))
+				{
+					donald1XSpeed *= -1;
+					nextDonaldPosition = vec3(donaldPosition1.x - donald1XSpeed,donaldPosition1.y,donaldPosition1.z);
+				}
+				donaldPosition1 = nextDonaldPosition;
+			}
+			else if (rand_int >= 6)
+			{
+				GhostDirection = 1;
+				nextDonaldPosition = vec3(donaldPosition1.x + donald1XSpeed,donaldPosition1.y,donaldPosition1.z);
+				if (positionIsCollidingWallGrid(nextDonaldPosition.x, nextDonaldPosition.y, nextDonaldPosition.z, 1.8))
+				{
+					donald1XSpeed *= -1;
+					nextDonaldPosition = vec3(donaldPosition1.x + donald1XSpeed,donaldPosition1.y,donaldPosition1.z);
+				}
+				donaldPosition1 = nextDonaldPosition;
+			}
+		}
+		else if (GhostDirection == 3)
+		{
+			rand_int = rand() % 10;
+		 if (rand_int == 0)
+		{
+			GhostDirection = 1;
+			nextDonaldPosition = vec3(donaldPosition1.x + donald1XSpeed,donaldPosition1.y,donaldPosition1.z);
+			if (positionIsCollidingWallGrid(nextDonaldPosition.x, nextDonaldPosition.y, nextDonaldPosition.z, 1.8))
+			{
+				donald1XSpeed *= -1;
+				nextDonaldPosition = vec3(donaldPosition1.x + donald1XSpeed,donaldPosition1.y,donaldPosition1.z);
+			}
+			donaldPosition1 = nextDonaldPosition;
+		}
+		else if (rand_int > 0 && rand_int < 6)
+		{
+			GhostDirection = 4;
+			nextDonaldPosition = vec3(donaldPosition1.x,donaldPosition1.y,donaldPosition1.z - donald1XSpeed);
+			if (positionIsCollidingWallGrid(nextDonaldPosition.x, nextDonaldPosition.y, nextDonaldPosition.z, 1.8))
+			{
+				donald1XSpeed *= -1;
+				nextDonaldPosition = vec3(donaldPosition1.x,donaldPosition1.y,donaldPosition1.z - donald1XSpeed);
+			}
+			donaldPosition1 = nextDonaldPosition;
+		}
+		else if (rand_int >= 6)
+		{
+			GhostDirection = 2;
+			nextDonaldPosition = vec3(donaldPosition1.x,donaldPosition1.y,donaldPosition1.z + donald1XSpeed);
+			if (positionIsCollidingWallGrid(nextDonaldPosition.x, nextDonaldPosition.y, nextDonaldPosition.z, 1.8))
+			{
+				donald1XSpeed *= -1;
+				nextDonaldPosition = vec3(donaldPosition1.x,donaldPosition1.y,donaldPosition1.z + donald1XSpeed);
+			}
+			donaldPosition1 = nextDonaldPosition;
+		}
+		}
+		else if (GhostDirection == 4)
+		{
+			rand_int = rand() % 10;
+			if (rand_int == 0)
+			{
+				GhostDirection = 2;
+				nextDonaldPosition = vec3(donaldPosition1.x,donaldPosition1.y,donaldPosition1.z + donald1XSpeed);
+				if (positionIsCollidingWallGrid(nextDonaldPosition.x, nextDonaldPosition.y, nextDonaldPosition.z, 1.8))
+				{
+					donald1XSpeed *= -1;
+					nextDonaldPosition = vec3(donaldPosition1.x,donaldPosition1.y,donaldPosition1.z + donald1XSpeed);
+				}
+				donaldPosition1 = nextDonaldPosition;
+				
+			}
+			else if (rand_int > 0 && rand_int < 6)
+			{
+				GhostDirection = 1;
+				nextDonaldPosition = vec3(donaldPosition1.x - donald1XSpeed,donaldPosition1.y,donaldPosition1.z);
+				if (positionIsCollidingWallGrid(nextDonaldPosition.x, nextDonaldPosition.y, nextDonaldPosition.z, 1.8))
+				{
+					donald1XSpeed *= -1;
+					nextDonaldPosition = vec3(donaldPosition1.x - donald1XSpeed,donaldPosition1.y,donaldPosition1.z);
+				}
+				donaldPosition1 = nextDonaldPosition;
+			}
+			else if (rand_int >= 6)
+			{
+				GhostDirection = 3;
+				nextDonaldPosition = vec3(donaldPosition1.x + donald1XSpeed,donaldPosition1.y,donaldPosition1.z);
+				if (positionIsCollidingWallGrid(nextDonaldPosition.x, nextDonaldPosition.y, nextDonaldPosition.z, 1.8))
+				{
+					donald1XSpeed *= -1;
+					nextDonaldPosition = vec3(donaldPosition1.x + donald1XSpeed,donaldPosition1.y,donaldPosition1.z);
+				}
+				donaldPosition1 = nextDonaldPosition;
+			}
+		}
+		
+		cout << rand_int << endl;
+		
+	}
+	myDonald.draw(theta,donaldPosition1);
 
 	glEnable(GL_CULL_FACE);
 
