@@ -40,14 +40,14 @@ tree myDot(0);
 tree myDonald(1);
 tree myDonaldClose(1);
 graphic2d screenPic(1);
-vec3 donaldPosition1 = vec3(16.5, 0.0, 2.75);
-//vec3 donaldPosition2 = vec3(16.5, 0.0, 2.75);
-//vec3 donaldPosition3 = vec3(16.5, 0.0, 2.75);
-//vec3 donaldPosition4 = vec3(16.5, 0.0, 2.75);
-float donald1XSpeed = 0.2;
-float donald2XSpeed = 0.5;
-float donald3XSpeed = 0.5;
-float donald4XSpeed = 0.5;
+vec3 GhostPos1 = vec3(46.0, 0.0, 57.0);
+vec3 GhostPos2 = vec3(50.0, 0.0, 57.0);
+vec3 GhostPos3 = vec3(54.0, 0.0, 57.0);
+vec3 GhostPos4 = vec3(58.0, 0.0, 57.0);
+float donald1XSpeed = -0.2;
+float donald2XSpeed = -0.2;
+float donald3XSpeed = -0.2;
+float donald4XSpeed = -0.2;
 bool drawDonaldCloseFace = false;
 
 string maze;
@@ -85,7 +85,7 @@ string row[61] = {
 	"NNNNNNNNNN#D.##########D.####D.##########D.#NNNNNNNNNNE",
 	"NNNNNNNNNN#D.#NN#DDDDDDDDDDDDDDDDDDD.#NN#D.#NNNNNNNNNNE",
 	"NNNNNNNNNN#D.#NN#D.................D.#NN#D.#NNNNNNNNNNE",
-	"NNNNNNNNNN#D.#NN#D.#####......#####D.#NN#D.#NNNNNNNNNNE",
+	"NNNNNNNNNN#D.#NN#D.#..............#D.#NN#D.#NNNNNNNNNNE",
 	"NNNNNNNNNN#D.#NN#D.#..............#D.#NN#D.#NNNNNNNNNNE",
 	"NNNNNNNNNN#D.#NN#D.#..............#D.#NN#D.#NNNNNNNNNNE",
 	"NNNNNNNNNN#D.####D.#..............#D.####D.#NNNNNNNNNNE",

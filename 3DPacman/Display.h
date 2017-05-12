@@ -2,13 +2,17 @@
 #define DISPLAY_H
 
 int rand_int;
-int GhostDirection = 1;
+int GhostDirection1 = 1;
+int GhostDirection2 = 1;
+int GhostDirection3 = 1;
+int GhostDirection4 = 1;
 
 int randomator()
 {
 	srand((unsigned)time(0));
 	return 0;
 }
+
 //2d health bar
 void drawHealthBar(float health) {
 	glDisable(GL_DEPTH_TEST);
@@ -76,20 +80,22 @@ void display(void)
 
 	glDisable(GL_CULL_FACE);
 
-
-
 	//draw donald 1
-	vec3 nextDonaldPosition;
-	if(GhostDirection == 1 || GhostDirection == 3)
-		nextDonaldPosition = vec3(donaldPosition1.x + donald1XSpeed,donaldPosition1.y,donaldPosition1.z);
-	if(GhostDirection == 2  || GhostDirection == 4)
-		nextDonaldPosition = vec3(donaldPosition1.x ,donaldPosition1.y,donaldPosition1.z + donald1XSpeed);
+	vec3 nextGhostPos;
+	vec3 nextGhostPos2;
+	vec3 nextGhostPos3;
+	vec3 nextGhostPos4;
 
-	if (!positionIsCollidingWallGrid(nextDonaldPosition.x, nextDonaldPosition.y, nextDonaldPosition.z, 1.8)) {
-		donaldPosition1 = nextDonaldPosition;
+	if(GhostDirection1 == 1 || GhostDirection1 == 3)
+		nextGhostPos = vec3(GhostPos1.x,GhostPos1.y,GhostPos1.z+ donald1XSpeed);
+	if(GhostDirection1 == 2  || GhostDirection1 == 4)
+		nextGhostPos = vec3(GhostPos1.x + donald1XSpeed,GhostPos1.y,GhostPos1.z);
+
+	if (!positionIsCollidingWallGrid(nextGhostPos.x, nextGhostPos.y, nextGhostPos.z, 1.8)) {
+		GhostPos1 = nextGhostPos;
 
 		//SOUND EQUATIONS
-		float distanceBetween = pow((donaldPosition1.x - eye.x), 2) + pow((donaldPosition1.y - eye.y), 2) + pow((donaldPosition1.z - eye.z), 2);
+		float distanceBetween = pow((GhostPos1.x - eye.x), 2) + pow((GhostPos1.y - eye.y), 2) + pow((GhostPos1.z - eye.z), 2);
 		distanceBetween /= 10.0;
 		float volume = 100.0;
 		float newVolume = volume - distanceBetween;
@@ -111,160 +117,708 @@ void display(void)
 		sound2.play();
 	}
 	else {
-		if (GhostDirection == 1)
+		if (GhostDirection1 == 1)
 		{
 			rand_int = rand() % 10;
 			if (rand_int == 0)
 			{
-				GhostDirection = 3;
-				nextDonaldPosition = vec3(donaldPosition1.x + donald1XSpeed,donaldPosition1.y,donaldPosition1.z);
-				if (positionIsCollidingWallGrid(nextDonaldPosition.x, nextDonaldPosition.y, nextDonaldPosition.z, 1.8))
+				GhostDirection1 = 3;
+				nextGhostPos = vec3(GhostPos1.x + donald1XSpeed,GhostPos1.y,GhostPos1.z);
+				if (positionIsCollidingWallGrid(nextGhostPos.x, nextGhostPos.y, nextGhostPos.z, 1.8))
 				{
 					donald1XSpeed *= -1;
-					nextDonaldPosition = vec3(donaldPosition1.x + donald1XSpeed,donaldPosition1.y,donaldPosition1.z);
+					nextGhostPos = vec3(GhostPos1.x + donald1XSpeed,GhostPos1.y,GhostPos1.z);
 				}
-				donaldPosition1 = nextDonaldPosition;
+				GhostPos1 = nextGhostPos;
 			}
 			else if (rand_int > 0 && rand_int <6)
 			{
-				GhostDirection = 4;
-				nextDonaldPosition = vec3(donaldPosition1.x,donaldPosition1.y,donaldPosition1.z - donald1XSpeed);
-				if (positionIsCollidingWallGrid(nextDonaldPosition.x, nextDonaldPosition.y, nextDonaldPosition.z, 1.8))
+				GhostDirection1 = 4;
+				nextGhostPos = vec3(GhostPos1.x,GhostPos1.y,GhostPos1.z - donald1XSpeed);
+				if (positionIsCollidingWallGrid(nextGhostPos.x, nextGhostPos.y, nextGhostPos.z, 1.8))
 				{
 					donald1XSpeed *= -1;
-					nextDonaldPosition = vec3(donaldPosition1.x,donaldPosition1.y,donaldPosition1.z - donald1XSpeed);
+					nextGhostPos = vec3(GhostPos1.x,GhostPos1.y,GhostPos1.z - donald1XSpeed);
 				}
-				donaldPosition1 = nextDonaldPosition;
+				GhostPos1 = nextGhostPos;
 			}
 			else if (rand_int >=6 )
 			{
-				GhostDirection = 2;
-				nextDonaldPosition = vec3(donaldPosition1.x,donaldPosition1.y,donaldPosition1.z + donald1XSpeed);
-				if (positionIsCollidingWallGrid(nextDonaldPosition.x, nextDonaldPosition.y, nextDonaldPosition.z, 1.8))
+				GhostDirection1 = 2;
+				nextGhostPos = vec3(GhostPos1.x,GhostPos1.y,GhostPos1.z + donald1XSpeed);
+				if (positionIsCollidingWallGrid(nextGhostPos.x, nextGhostPos.y, nextGhostPos.z, 1.8))
 				{
 					donald1XSpeed *= -1;
-					nextDonaldPosition = vec3(donaldPosition1.x,donaldPosition1.y,donaldPosition1.z + donald1XSpeed);
+					nextGhostPos = vec3(GhostPos1.x,GhostPos1.y,GhostPos1.z + donald1XSpeed);
 				}
-				donaldPosition1 = nextDonaldPosition;
+				GhostPos1 = nextGhostPos;
 			}
 		}
-		else if (GhostDirection == 2)
+		else if (GhostDirection1 == 2)
 		{
 			rand_int = rand() % 10;
 			if (rand_int == 0)
 			{
-				GhostDirection = 4;
-				nextDonaldPosition = vec3(donaldPosition1.x,donaldPosition1.y,donaldPosition1.z + donald1XSpeed);
-				if (positionIsCollidingWallGrid(nextDonaldPosition.x, nextDonaldPosition.y, nextDonaldPosition.z, 1.8))
+				GhostDirection1 = 4;
+				nextGhostPos = vec3(GhostPos1.x,GhostPos1.y,GhostPos1.z + donald1XSpeed);
+				if (positionIsCollidingWallGrid(nextGhostPos.x, nextGhostPos.y, nextGhostPos.z, 1.8))
 				{
 					donald1XSpeed *= -1;
-					nextDonaldPosition = vec3(donaldPosition1.x,donaldPosition1.y,donaldPosition1.z + donald1XSpeed);
+					nextGhostPos = vec3(GhostPos1.x,GhostPos1.y,GhostPos1.z + donald1XSpeed);
 				}
-				donaldPosition1 = nextDonaldPosition;
+				GhostPos1 = nextGhostPos;
 			}
 			else if (rand_int > 0 && rand_int < 6)
 			{
-				GhostDirection = 3;
-				nextDonaldPosition = vec3(donaldPosition1.x - donald1XSpeed,donaldPosition1.y,donaldPosition1.z);
-				if (positionIsCollidingWallGrid(nextDonaldPosition.x, nextDonaldPosition.y, nextDonaldPosition.z, 1.8))
+				GhostDirection1 = 3;
+				nextGhostPos = vec3(GhostPos1.x - donald1XSpeed,GhostPos1.y,GhostPos1.z);
+				if (positionIsCollidingWallGrid(nextGhostPos.x, nextGhostPos.y, nextGhostPos.z, 1.8))
 				{
 					donald1XSpeed *= -1;
-					nextDonaldPosition = vec3(donaldPosition1.x - donald1XSpeed,donaldPosition1.y,donaldPosition1.z);
+					nextGhostPos = vec3(GhostPos1.x - donald1XSpeed,GhostPos1.y,GhostPos1.z);
 				}
-				donaldPosition1 = nextDonaldPosition;
+				GhostPos1 = nextGhostPos;
 			}
 			else if (rand_int >= 6)
 			{
-				GhostDirection = 1;
-				nextDonaldPosition = vec3(donaldPosition1.x + donald1XSpeed,donaldPosition1.y,donaldPosition1.z);
-				if (positionIsCollidingWallGrid(nextDonaldPosition.x, nextDonaldPosition.y, nextDonaldPosition.z, 1.8))
+				GhostDirection1 = 1;
+				nextGhostPos = vec3(GhostPos1.x + donald1XSpeed,GhostPos1.y,GhostPos1.z);
+				if (positionIsCollidingWallGrid(nextGhostPos.x, nextGhostPos.y, nextGhostPos.z, 1.8))
 				{
 					donald1XSpeed *= -1;
-					nextDonaldPosition = vec3(donaldPosition1.x + donald1XSpeed,donaldPosition1.y,donaldPosition1.z);
+					nextGhostPos = vec3(GhostPos1.x + donald1XSpeed,GhostPos1.y,GhostPos1.z);
 				}
-				donaldPosition1 = nextDonaldPosition;
+				GhostPos1 = nextGhostPos;
 			}
 		}
-		else if (GhostDirection == 3)
+		else if (GhostDirection1 == 3)
 		{
 			rand_int = rand() % 10;
 		 if (rand_int == 0)
 		{
-			GhostDirection = 1;
-			nextDonaldPosition = vec3(donaldPosition1.x + donald1XSpeed,donaldPosition1.y,donaldPosition1.z);
-			if (positionIsCollidingWallGrid(nextDonaldPosition.x, nextDonaldPosition.y, nextDonaldPosition.z, 1.8))
+			GhostDirection1 = 1;
+			nextGhostPos = vec3(GhostPos1.x + donald1XSpeed,GhostPos1.y,GhostPos1.z);
+			if (positionIsCollidingWallGrid(nextGhostPos.x, nextGhostPos.y, nextGhostPos.z, 1.8))
 			{
 				donald1XSpeed *= -1;
-				nextDonaldPosition = vec3(donaldPosition1.x + donald1XSpeed,donaldPosition1.y,donaldPosition1.z);
+				nextGhostPos = vec3(GhostPos1.x + donald1XSpeed,GhostPos1.y,GhostPos1.z);
 			}
-			donaldPosition1 = nextDonaldPosition;
+			GhostPos1 = nextGhostPos;
 		}
 		else if (rand_int > 0 && rand_int < 6)
 		{
-			GhostDirection = 4;
-			nextDonaldPosition = vec3(donaldPosition1.x,donaldPosition1.y,donaldPosition1.z - donald1XSpeed);
-			if (positionIsCollidingWallGrid(nextDonaldPosition.x, nextDonaldPosition.y, nextDonaldPosition.z, 1.8))
+			GhostDirection1 = 4;
+			nextGhostPos = vec3(GhostPos1.x,GhostPos1.y,GhostPos1.z - donald1XSpeed);
+			if (positionIsCollidingWallGrid(nextGhostPos.x, nextGhostPos.y, nextGhostPos.z, 1.8))
 			{
 				donald1XSpeed *= -1;
-				nextDonaldPosition = vec3(donaldPosition1.x,donaldPosition1.y,donaldPosition1.z - donald1XSpeed);
+				nextGhostPos = vec3(GhostPos1.x,GhostPos1.y,GhostPos1.z - donald1XSpeed);
 			}
-			donaldPosition1 = nextDonaldPosition;
+			GhostPos1 = nextGhostPos;
 		}
 		else if (rand_int >= 6)
 		{
-			GhostDirection = 2;
-			nextDonaldPosition = vec3(donaldPosition1.x,donaldPosition1.y,donaldPosition1.z + donald1XSpeed);
-			if (positionIsCollidingWallGrid(nextDonaldPosition.x, nextDonaldPosition.y, nextDonaldPosition.z, 1.8))
+			GhostDirection1 = 2;
+			nextGhostPos = vec3(GhostPos1.x,GhostPos1.y,GhostPos1.z + donald1XSpeed);
+			if (positionIsCollidingWallGrid(nextGhostPos.x, nextGhostPos.y, nextGhostPos.z, 1.8))
 			{
 				donald1XSpeed *= -1;
-				nextDonaldPosition = vec3(donaldPosition1.x,donaldPosition1.y,donaldPosition1.z + donald1XSpeed);
+				nextGhostPos = vec3(GhostPos1.x,GhostPos1.y,GhostPos1.z + donald1XSpeed);
 			}
-			donaldPosition1 = nextDonaldPosition;
+			GhostPos1 = nextGhostPos;
 		}
 		}
-		else if (GhostDirection == 4)
+		else if (GhostDirection1 == 4)
 		{
 			rand_int = rand() % 10;
 			if (rand_int == 0)
 			{
-				GhostDirection = 2;
-				nextDonaldPosition = vec3(donaldPosition1.x,donaldPosition1.y,donaldPosition1.z + donald1XSpeed);
-				if (positionIsCollidingWallGrid(nextDonaldPosition.x, nextDonaldPosition.y, nextDonaldPosition.z, 1.8))
+				GhostDirection1 = 2;
+				nextGhostPos = vec3(GhostPos1.x,GhostPos1.y,GhostPos1.z + donald1XSpeed);
+				if (positionIsCollidingWallGrid(nextGhostPos.x, nextGhostPos.y, nextGhostPos.z, 1.8))
 				{
 					donald1XSpeed *= -1;
-					nextDonaldPosition = vec3(donaldPosition1.x,donaldPosition1.y,donaldPosition1.z + donald1XSpeed);
+					nextGhostPos = vec3(GhostPos1.x,GhostPos1.y,GhostPos1.z + donald1XSpeed);
 				}
-				donaldPosition1 = nextDonaldPosition;
+				GhostPos1 = nextGhostPos;
 				
 			}
 			else if (rand_int > 0 && rand_int < 6)
 			{
-				GhostDirection = 1;
-				nextDonaldPosition = vec3(donaldPosition1.x - donald1XSpeed,donaldPosition1.y,donaldPosition1.z);
-				if (positionIsCollidingWallGrid(nextDonaldPosition.x, nextDonaldPosition.y, nextDonaldPosition.z, 1.8))
+				GhostDirection1 = 1;
+				nextGhostPos = vec3(GhostPos1.x - donald1XSpeed,GhostPos1.y,GhostPos1.z);
+				if (positionIsCollidingWallGrid(nextGhostPos.x, nextGhostPos.y, nextGhostPos.z, 1.8))
 				{
 					donald1XSpeed *= -1;
-					nextDonaldPosition = vec3(donaldPosition1.x - donald1XSpeed,donaldPosition1.y,donaldPosition1.z);
+					nextGhostPos = vec3(GhostPos1.x - donald1XSpeed,GhostPos1.y,GhostPos1.z);
 				}
-				donaldPosition1 = nextDonaldPosition;
+				GhostPos1 = nextGhostPos;
 			}
 			else if (rand_int >= 6)
 			{
-				GhostDirection = 3;
-				nextDonaldPosition = vec3(donaldPosition1.x + donald1XSpeed,donaldPosition1.y,donaldPosition1.z);
-				if (positionIsCollidingWallGrid(nextDonaldPosition.x, nextDonaldPosition.y, nextDonaldPosition.z, 1.8))
+				GhostDirection1 = 3;
+				nextGhostPos = vec3(GhostPos1.x + donald1XSpeed,GhostPos1.y,GhostPos1.z);
+				if (positionIsCollidingWallGrid(nextGhostPos.x, nextGhostPos.y, nextGhostPos.z, 1.8))
 				{
 					donald1XSpeed *= -1;
-					nextDonaldPosition = vec3(donaldPosition1.x + donald1XSpeed,donaldPosition1.y,donaldPosition1.z);
+					nextGhostPos = vec3(GhostPos1.x + donald1XSpeed,GhostPos1.y,GhostPos1.z);
 				}
-				donaldPosition1 = nextDonaldPosition;
+				GhostPos1 = nextGhostPos;
+			}
+		}	
+	}
+
+	if (GhostDirection2 == 1 || GhostDirection2 == 3)
+		nextGhostPos2 = vec3(GhostPos2.x , GhostPos2.y, GhostPos2.z + donald2XSpeed);
+	if (GhostDirection2 == 2 || GhostDirection2 == 4)
+		nextGhostPos2 = vec3(GhostPos2.x + donald2XSpeed, GhostPos2.y, GhostPos2.z);
+
+	if (!positionIsCollidingWallGrid(nextGhostPos2.x, nextGhostPos2.y, nextGhostPos2.z, 1.8)) {
+		GhostPos2 = nextGhostPos2;
+
+		//SOUND EQUATIONS
+		float distanceBetween = pow((GhostPos2.x - eye.x), 2) + pow((GhostPos2.y - eye.y), 2) + pow((GhostPos2.z - eye.z), 2);
+		distanceBetween /= 10.0;
+		float volume = 100.0;
+		float newVolume = volume - distanceBetween;
+		if (newVolume > 50.0) {
+			volume = newVolume;
+		}
+		else if (newVolume < 50.0) {
+			volume = newVolume / 3;
+		}
+		else
+			volume = newVolume;
+
+		if (volume < 1.1)
+			volume = 0.0;
+		else
+			volume = 12.04*log2(volume) + 20.0;
+
+		sound2.setVolume(volume);
+		sound2.play();
+	}
+	else {
+		if (GhostDirection2 == 1)
+		{
+			rand_int = rand() % 10;
+			if (rand_int == 0)
+			{
+				GhostDirection2 = 3;
+				nextGhostPos2 = vec3(GhostPos2.x + donald2XSpeed, GhostPos2.y, GhostPos2.z);
+				if (positionIsCollidingWallGrid(nextGhostPos2.x, nextGhostPos2.y, nextGhostPos2.z, 1.8))
+				{
+					donald2XSpeed *= -1;
+					nextGhostPos2 = vec3(GhostPos2.x + donald2XSpeed, GhostPos2.y, GhostPos2.z);
+				}
+				GhostPos2 = nextGhostPos2;
+			}
+			else if (rand_int > 0 && rand_int <6)
+			{
+				GhostDirection2 = 4;
+				nextGhostPos2 = vec3(GhostPos2.x, GhostPos2.y, GhostPos2.z - donald2XSpeed);
+				if (positionIsCollidingWallGrid(nextGhostPos2.x, nextGhostPos2.y, nextGhostPos2.z, 1.8))
+				{
+					donald2XSpeed *= -1;
+					nextGhostPos2 = vec3(GhostPos2.x, GhostPos2.y, GhostPos2.z - donald2XSpeed);
+				}
+				GhostPos2 = nextGhostPos2;
+			}
+			else if (rand_int >= 6)
+			{
+				GhostDirection2 = 2;
+				nextGhostPos2 = vec3(GhostPos2.x, GhostPos2.y, GhostPos2.z + donald2XSpeed);
+				if (positionIsCollidingWallGrid(nextGhostPos2.x, nextGhostPos2.y, nextGhostPos2.z, 1.8))
+				{
+					donald2XSpeed *= -1;
+					nextGhostPos2 = vec3(GhostPos2.x, GhostPos2.y, GhostPos2.z + donald2XSpeed);
+				}
+				GhostPos2 = nextGhostPos2;
 			}
 		}
-		
-		cout << rand_int << endl;
-		
+		else if (GhostDirection2 == 2)
+		{
+			rand_int = rand() % 10;
+			if (rand_int == 0)
+			{
+				GhostDirection2 = 4;
+				nextGhostPos2 = vec3(GhostPos2.x, GhostPos2.y, GhostPos2.z + donald2XSpeed);
+				if (positionIsCollidingWallGrid(nextGhostPos2.x, nextGhostPos2.y, nextGhostPos2.z, 1.8))
+				{
+					donald2XSpeed *= -1;
+					nextGhostPos2 = vec3(GhostPos2.x, GhostPos2.y, GhostPos2.z + donald2XSpeed);
+				}
+				GhostPos2 = nextGhostPos2;
+			}
+			else if (rand_int > 0 && rand_int < 6)
+			{
+				GhostDirection2 = 3;
+				nextGhostPos2 = vec3(GhostPos2.x - donald2XSpeed, GhostPos2.y, GhostPos2.z);
+				if (positionIsCollidingWallGrid(nextGhostPos2.x, nextGhostPos2.y, nextGhostPos2.z, 1.8))
+				{
+					donald2XSpeed *= -1;
+					nextGhostPos2 = vec3(GhostPos2.x - donald2XSpeed, GhostPos2.y, GhostPos2.z);
+				}
+				GhostPos2 = nextGhostPos2;
+			}
+			else if (rand_int >= 6)
+			{
+				GhostDirection2 = 1;
+				nextGhostPos2 = vec3(GhostPos2.x + donald2XSpeed, GhostPos2.y, GhostPos2.z);
+				if (positionIsCollidingWallGrid(nextGhostPos2.x, nextGhostPos2.y, nextGhostPos2.z, 1.8))
+				{
+					donald2XSpeed *= -1;
+					nextGhostPos2 = vec3(GhostPos2.x + donald2XSpeed, GhostPos2.y, GhostPos2.z);
+				}
+				GhostPos2 = nextGhostPos2;
+			}
+		}
+		else if (GhostDirection2 == 3)
+		{
+			rand_int = rand() % 10;
+			if (rand_int == 0)
+			{
+				GhostDirection2 = 1;
+				nextGhostPos2 = vec3(GhostPos2.x + donald2XSpeed, GhostPos2.y, GhostPos2.z);
+				if (positionIsCollidingWallGrid(nextGhostPos2.x, nextGhostPos2.y, nextGhostPos2.z, 1.8))
+				{
+					donald2XSpeed *= -1;
+					nextGhostPos2 = vec3(GhostPos2.x + donald2XSpeed, GhostPos2.y, GhostPos2.z);
+				}
+				GhostPos2 = nextGhostPos2;
+			}
+			else if (rand_int > 0 && rand_int < 6)
+			{
+				GhostDirection2 = 4;
+				nextGhostPos2 = vec3(GhostPos2.x, GhostPos2.y, GhostPos2.z - donald2XSpeed);
+				if (positionIsCollidingWallGrid(nextGhostPos2.x, nextGhostPos2.y, nextGhostPos2.z, 1.8))
+				{
+					donald2XSpeed *= -1;
+					nextGhostPos2 = vec3(GhostPos2.x, GhostPos2.y, GhostPos2.z - donald2XSpeed);
+				}
+				GhostPos2 = nextGhostPos2;
+			}
+			else if (rand_int >= 6)
+			{
+				GhostDirection2 = 2;
+				nextGhostPos2 = vec3(GhostPos2.x, GhostPos2.y, GhostPos2.z + donald2XSpeed);
+				if (positionIsCollidingWallGrid(nextGhostPos2.x, nextGhostPos2.y, nextGhostPos2.z, 1.8))
+				{
+					donald2XSpeed *= -1;
+					nextGhostPos2 = vec3(GhostPos2.x, GhostPos2.y, GhostPos2.z + donald2XSpeed);
+				}
+				GhostPos2 = nextGhostPos2;
+			}
+		}
+		else if (GhostDirection2 == 4)
+		{
+			rand_int = rand() % 10;
+			if (rand_int == 0)
+			{
+				GhostDirection2 = 2;
+				nextGhostPos2 = vec3(GhostPos2.x, GhostPos2.y, GhostPos2.z + donald2XSpeed);
+				if (positionIsCollidingWallGrid(nextGhostPos2.x, nextGhostPos2.y, nextGhostPos2.z, 1.8))
+				{
+					donald2XSpeed *= -1;
+					nextGhostPos2 = vec3(GhostPos2.x, GhostPos2.y, GhostPos2.z + donald2XSpeed);
+				}
+				GhostPos2 = nextGhostPos2;
+
+			}
+			else if (rand_int > 0 && rand_int < 6)
+			{
+				GhostDirection2 = 1;
+				nextGhostPos2 = vec3(GhostPos2.x - donald2XSpeed, GhostPos2.y, GhostPos2.z);
+				if (positionIsCollidingWallGrid(nextGhostPos2.x, nextGhostPos2.y, nextGhostPos2.z, 1.8))
+				{
+					donald2XSpeed *= -1;
+					nextGhostPos2 = vec3(GhostPos2.x - donald2XSpeed, GhostPos2.y, GhostPos2.z);
+				}
+				GhostPos2 = nextGhostPos2;
+			}
+			else if (rand_int >= 6)
+			{
+				GhostDirection2 = 3;
+				nextGhostPos2 = vec3(GhostPos2.x + donald2XSpeed, GhostPos2.y, GhostPos2.z);
+				if (positionIsCollidingWallGrid(nextGhostPos2.x, nextGhostPos2.y, nextGhostPos2.z, 1.8))
+				{
+					donald2XSpeed *= -1;
+					nextGhostPos2 = vec3(GhostPos2.x + donald2XSpeed, GhostPos2.y, GhostPos2.z);
+				}
+				GhostPos2 = nextGhostPos2;
+			}
+		}
 	}
-	myDonald.draw(theta,donaldPosition1);
+
+	
+	if (GhostDirection3 == 1 || GhostDirection3 == 3)
+		nextGhostPos3 = vec3(GhostPos3.x, GhostPos3.y, GhostPos3.z + donald3XSpeed);
+	if (GhostDirection3 == 2 || GhostDirection3 == 4)
+		nextGhostPos3 = vec3(GhostPos3.x + donald3XSpeed, GhostPos3.y, GhostPos3.z);
+
+	if (!positionIsCollidingWallGrid(nextGhostPos3.x, nextGhostPos3.y, nextGhostPos3.z, 1.8)) {
+		GhostPos3 = nextGhostPos3;
+
+		//SOUND EQUATIONS
+		float distanceBetween = pow((GhostPos3.x - eye.x), 2) + pow((GhostPos3.y - eye.y), 2) + pow((GhostPos3.z - eye.z), 2);
+		distanceBetween /= 10.0;
+		float volume = 100.0;
+		float newVolume = volume - distanceBetween;
+		if (newVolume > 50.0) {
+			volume = newVolume;
+		}
+		else if (newVolume < 50.0) {
+			volume = newVolume / 3;
+		}
+		else
+			volume = newVolume;
+
+		if (volume < 1.1)
+			volume = 0.0;
+		else
+			volume = 12.04*log2(volume) + 20.0;
+
+		sound2.setVolume(volume);
+		sound2.play();
+	}
+	else {
+		if (GhostDirection3 == 1)
+		{
+			rand_int = rand() % 10;
+			if (rand_int == 0)
+			{
+				GhostDirection3 = 3;
+				nextGhostPos3 = vec3(GhostPos3.x + donald3XSpeed, GhostPos3.y, GhostPos3.z);
+				if (positionIsCollidingWallGrid(nextGhostPos3.x, nextGhostPos3.y, nextGhostPos3.z, 1.8))
+				{
+					donald3XSpeed *= -1;
+					nextGhostPos3 = vec3(GhostPos3.x + donald3XSpeed, GhostPos3.y, GhostPos3.z);
+				}
+				GhostPos3 = nextGhostPos3;
+			}
+			else if (rand_int > 0 && rand_int <6)
+			{
+				GhostDirection3 = 4;
+				nextGhostPos3 = vec3(GhostPos3.x, GhostPos3.y, GhostPos3.z - donald3XSpeed);
+				if (positionIsCollidingWallGrid(nextGhostPos3.x, nextGhostPos3.y, nextGhostPos3.z, 1.8))
+				{
+					donald3XSpeed *= -1;
+					nextGhostPos3 = vec3(GhostPos3.x, GhostPos3.y, GhostPos3.z - donald3XSpeed);
+				}
+				GhostPos3 = nextGhostPos3;
+			}
+			else if (rand_int >= 6)
+			{
+				GhostDirection3 = 2;
+				nextGhostPos3 = vec3(GhostPos3.x, GhostPos3.y, GhostPos3.z + donald3XSpeed);
+				if (positionIsCollidingWallGrid(nextGhostPos3.x, nextGhostPos3.y, nextGhostPos3.z, 1.8))
+				{
+					donald3XSpeed *= -1;
+					nextGhostPos3 = vec3(GhostPos3.x, GhostPos3.y, GhostPos3.z + donald3XSpeed);
+				}
+				GhostPos3 = nextGhostPos3;
+			}
+		}
+		else if (GhostDirection3 == 2)
+		{
+			rand_int = rand() % 10;
+			if (rand_int == 0)
+			{
+				GhostDirection3 = 4;
+				nextGhostPos3 = vec3(GhostPos3.x, GhostPos3.y, GhostPos3.z + donald3XSpeed);
+				if (positionIsCollidingWallGrid(nextGhostPos3.x, nextGhostPos3.y, nextGhostPos3.z, 1.8))
+				{
+					donald3XSpeed *= -1;
+					nextGhostPos3 = vec3(GhostPos3.x, GhostPos3.y, GhostPos3.z + donald3XSpeed);
+				}
+				GhostPos3 = nextGhostPos3;
+			}
+			else if (rand_int > 0 && rand_int < 6)
+			{
+				GhostDirection3 = 3;
+				nextGhostPos3 = vec3(GhostPos3.x - donald3XSpeed, GhostPos3.y, GhostPos3.z);
+				if (positionIsCollidingWallGrid(nextGhostPos3.x, nextGhostPos3.y, nextGhostPos3.z, 1.8))
+				{
+					donald3XSpeed *= -1;
+					nextGhostPos3 = vec3(GhostPos3.x - donald3XSpeed, GhostPos3.y, GhostPos3.z);
+				}
+				GhostPos3 = nextGhostPos3;
+			}
+			else if (rand_int >= 6)
+			{
+				GhostDirection3 = 1;
+				nextGhostPos3 = vec3(GhostPos3.x + donald3XSpeed, GhostPos3.y, GhostPos3.z);
+				if (positionIsCollidingWallGrid(nextGhostPos3.x, nextGhostPos3.y, nextGhostPos3.z, 1.8))
+				{
+					donald3XSpeed *= -1;
+					nextGhostPos3 = vec3(GhostPos3.x + donald3XSpeed, GhostPos3.y, GhostPos3.z);
+				}
+				GhostPos3 = nextGhostPos3;
+			}
+		}
+		else if (GhostDirection3 == 3)
+		{
+			rand_int = rand() % 10;
+			if (rand_int == 0)
+			{
+				GhostDirection3 = 1;
+				nextGhostPos3 = vec3(GhostPos3.x + donald3XSpeed, GhostPos3.y, GhostPos3.z);
+				if (positionIsCollidingWallGrid(nextGhostPos3.x, nextGhostPos3.y, nextGhostPos3.z, 1.8))
+				{
+					donald3XSpeed *= -1;
+					nextGhostPos3 = vec3(GhostPos3.x + donald3XSpeed, GhostPos3.y, GhostPos3.z);
+				}
+				GhostPos3 = nextGhostPos3;
+			}
+			else if (rand_int > 0 && rand_int < 6)
+			{
+				GhostDirection3 = 4;
+				nextGhostPos3 = vec3(GhostPos3.x, GhostPos3.y, GhostPos3.z - donald3XSpeed);
+				if (positionIsCollidingWallGrid(nextGhostPos3.x, nextGhostPos3.y, nextGhostPos3.z, 1.8))
+				{
+					donald3XSpeed *= -1;
+					nextGhostPos3 = vec3(GhostPos3.x, GhostPos3.y, GhostPos3.z - donald3XSpeed);
+				}
+				GhostPos3 = nextGhostPos3;
+			}
+			else if (rand_int >= 6)
+			{
+				GhostDirection3 = 2;
+				nextGhostPos3 = vec3(GhostPos3.x, GhostPos3.y, GhostPos3.z + donald3XSpeed);
+				if (positionIsCollidingWallGrid(nextGhostPos3.x, nextGhostPos3.y, nextGhostPos3.z, 1.8))
+				{
+					donald3XSpeed *= -1;
+					nextGhostPos3 = vec3(GhostPos3.x, GhostPos3.y, GhostPos3.z + donald3XSpeed);
+				}
+				GhostPos3 = nextGhostPos3;
+			}
+		}
+		else if (GhostDirection3 == 4)
+		{
+			rand_int = rand() % 10;
+			if (rand_int == 0)
+			{
+				GhostDirection3 = 2;
+				nextGhostPos3 = vec3(GhostPos3.x, GhostPos3.y, GhostPos3.z + donald3XSpeed);
+				if (positionIsCollidingWallGrid(nextGhostPos3.x, nextGhostPos3.y, nextGhostPos3.z, 1.8))
+				{
+					donald3XSpeed *= -1;
+					nextGhostPos3 = vec3(GhostPos3.x, GhostPos3.y, GhostPos3.z + donald3XSpeed);
+				}
+				GhostPos3 = nextGhostPos3;
+
+			}
+			else if (rand_int > 0 && rand_int < 6)
+			{
+				GhostDirection3 = 1;
+				nextGhostPos3 = vec3(GhostPos3.x - donald3XSpeed, GhostPos3.y, GhostPos3.z);
+				if (positionIsCollidingWallGrid(nextGhostPos3.x, nextGhostPos3.y, nextGhostPos3.z, 1.8))
+				{
+					donald3XSpeed *= -1;
+					nextGhostPos3 = vec3(GhostPos3.x - donald3XSpeed, GhostPos3.y, GhostPos3.z);
+				}
+				GhostPos3 = nextGhostPos3;
+			}
+			else if (rand_int >= 6)
+			{
+				GhostDirection3 = 3;
+				nextGhostPos3 = vec3(GhostPos3.x + donald3XSpeed, GhostPos3.y, GhostPos3.z);
+				if (positionIsCollidingWallGrid(nextGhostPos3.x, nextGhostPos3.y, nextGhostPos3.z, 1.8))
+				{
+					donald3XSpeed *= -1;
+					nextGhostPos3 = vec3(GhostPos3.x + donald3XSpeed, GhostPos3.y, GhostPos3.z);
+				}
+				GhostPos3 = nextGhostPos3;
+			}
+		}
+	}
+
+	if (GhostDirection4 == 1 || GhostDirection4 == 3)
+		nextGhostPos4 = vec3(GhostPos4.x, GhostPos4.y, GhostPos4.z + donald4XSpeed);
+	if (GhostDirection4 == 2 || GhostDirection4 == 4)
+		nextGhostPos4 = vec3(GhostPos4.x + donald4XSpeed, GhostPos4.y, GhostPos4.z );
+
+	if (!positionIsCollidingWallGrid(nextGhostPos4.x, nextGhostPos4.y, nextGhostPos4.z, 1.8)) {
+		GhostPos4 = nextGhostPos4;
+
+		//SOUND EQUATIONS
+		float distanceBetween = pow((GhostPos4.x - eye.x), 2) + pow((GhostPos4.y - eye.y), 2) + pow((GhostPos4.z - eye.z), 2);
+		distanceBetween /= 10.0;
+		float volume = 100.0;
+		float newVolume = volume - distanceBetween;
+		if (newVolume > 50.0) {
+			volume = newVolume;
+		}
+		else if (newVolume < 50.0) {
+			volume = newVolume / 3;
+		}
+		else
+			volume = newVolume;
+
+		if (volume < 1.1)
+			volume = 0.0;
+		else
+			volume = 12.04*log2(volume) + 20.0;
+
+		sound2.setVolume(volume);
+		sound2.play();
+	}
+	else {
+		if (GhostDirection4 == 1)
+		{
+			rand_int = rand() % 10;
+			if (rand_int == 0)
+			{
+				GhostDirection4 = 3;
+				nextGhostPos4 = vec3(GhostPos4.x + donald4XSpeed, GhostPos4.y, GhostPos4.z);
+				if (positionIsCollidingWallGrid(nextGhostPos4.x, nextGhostPos4.y, nextGhostPos4.z, 1.8))
+				{
+					donald4XSpeed *= -1;
+					nextGhostPos4 = vec3(GhostPos4.x + donald4XSpeed, GhostPos4.y, GhostPos4.z);
+				}
+				GhostPos4 = nextGhostPos4;
+			}
+			else if (rand_int > 0 && rand_int <6)
+			{
+				GhostDirection4 = 4;
+				nextGhostPos4 = vec3(GhostPos4.x, GhostPos4.y, GhostPos4.z - donald4XSpeed);
+				if (positionIsCollidingWallGrid(nextGhostPos4.x, nextGhostPos4.y, nextGhostPos4.z, 1.8))
+				{
+					donald4XSpeed *= -1;
+					nextGhostPos4 = vec3(GhostPos4.x, GhostPos4.y, GhostPos4.z - donald4XSpeed);
+				}
+				GhostPos4 = nextGhostPos4;
+			}
+			else if (rand_int >= 6)
+			{
+				GhostDirection4 = 2;
+				nextGhostPos4 = vec3(GhostPos4.x, GhostPos4.y, GhostPos4.z + donald4XSpeed);
+				if (positionIsCollidingWallGrid(nextGhostPos4.x, nextGhostPos4.y, nextGhostPos4.z, 1.8))
+				{
+					donald4XSpeed *= -1;
+					nextGhostPos4 = vec3(GhostPos4.x, GhostPos4.y, GhostPos4.z + donald4XSpeed);
+				}
+				GhostPos4 = nextGhostPos4;
+			}
+		}
+		else if (GhostDirection4 == 2)
+		{
+			rand_int = rand() % 10;
+			if (rand_int == 0)
+			{
+				GhostDirection4 = 4;
+				nextGhostPos4 = vec3(GhostPos4.x, GhostPos4.y, GhostPos4.z + donald4XSpeed);
+				if (positionIsCollidingWallGrid(nextGhostPos4.x, nextGhostPos4.y, nextGhostPos4.z, 1.8))
+				{
+					donald4XSpeed *= -1;
+					nextGhostPos4 = vec3(GhostPos4.x, GhostPos4.y, GhostPos4.z + donald4XSpeed);
+				}
+				GhostPos4 = nextGhostPos4;
+			}
+			else if (rand_int > 0 && rand_int < 6)
+			{
+				GhostDirection4 = 3;
+				nextGhostPos4 = vec3(GhostPos4.x - donald4XSpeed, GhostPos4.y, GhostPos4.z);
+				if (positionIsCollidingWallGrid(nextGhostPos4.x, nextGhostPos4.y, nextGhostPos4.z, 1.8))
+				{
+					donald4XSpeed *= -1;
+					nextGhostPos4 = vec3(GhostPos4.x - donald4XSpeed, GhostPos4.y, GhostPos4.z);
+				}
+				GhostPos4 = nextGhostPos4;
+			}
+			else if (rand_int >= 6)
+			{
+				GhostDirection4 = 1;
+				nextGhostPos4 = vec3(GhostPos4.x + donald4XSpeed, GhostPos4.y, GhostPos4.z);
+				if (positionIsCollidingWallGrid(nextGhostPos4.x, nextGhostPos4.y, nextGhostPos4.z, 1.8))
+				{
+					donald4XSpeed *= -1;
+					nextGhostPos4 = vec3(GhostPos4.x + donald4XSpeed, GhostPos4.y, GhostPos4.z);
+				}
+				GhostPos4 = nextGhostPos4;
+			}
+		}
+		else if (GhostDirection4 == 3)
+		{
+			rand_int = rand() % 10;
+			if (rand_int == 0)
+			{
+				GhostDirection4 = 1;
+				nextGhostPos4 = vec3(GhostPos4.x + donald4XSpeed, GhostPos4.y, GhostPos4.z);
+				if (positionIsCollidingWallGrid(nextGhostPos4.x, nextGhostPos4.y, nextGhostPos4.z, 1.8))
+				{
+					donald4XSpeed *= -1;
+					nextGhostPos4 = vec3(GhostPos4.x + donald4XSpeed, GhostPos4.y, GhostPos4.z);
+				}
+				GhostPos4 = nextGhostPos4;
+			}
+			else if (rand_int > 0 && rand_int < 6)
+			{
+				GhostDirection4 = 4;
+				nextGhostPos4 = vec3(GhostPos4.x, GhostPos4.y, GhostPos4.z - donald4XSpeed);
+				if (positionIsCollidingWallGrid(nextGhostPos4.x, nextGhostPos4.y, nextGhostPos4.z, 1.8))
+				{
+					donald4XSpeed *= -1;
+					nextGhostPos4 = vec3(GhostPos4.x, GhostPos4.y, GhostPos4.z - donald4XSpeed);
+				}
+				GhostPos4 = nextGhostPos4;
+			}
+			else if (rand_int >= 6)
+			{
+				GhostDirection4 = 2;
+				nextGhostPos4 = vec3(GhostPos4.x, GhostPos4.y, GhostPos4.z + donald4XSpeed);
+				if (positionIsCollidingWallGrid(nextGhostPos4.x, nextGhostPos4.y, nextGhostPos4.z, 1.8))
+				{
+					donald4XSpeed *= -1;
+					nextGhostPos4 = vec3(GhostPos4.x, GhostPos4.y, GhostPos4.z + donald4XSpeed);
+				}
+				GhostPos4 = nextGhostPos4;
+			}
+		}
+		else if (GhostDirection4 == 4)
+		{
+			rand_int = rand() % 10;
+			if (rand_int == 0)
+			{
+				GhostDirection4 = 2;
+				nextGhostPos4 = vec3(GhostPos4.x, GhostPos4.y, GhostPos4.z + donald4XSpeed);
+				if (positionIsCollidingWallGrid(nextGhostPos4.x, nextGhostPos4.y, nextGhostPos4.z, 1.8))
+				{
+					donald4XSpeed *= -1;
+					nextGhostPos4 = vec3(GhostPos4.x, GhostPos4.y, GhostPos4.z + donald4XSpeed);
+				}
+				GhostPos4 = nextGhostPos4;
+
+			}
+			else if (rand_int > 0 && rand_int < 6)
+			{
+				GhostDirection4 = 1;
+				nextGhostPos4 = vec3(GhostPos4.x - donald4XSpeed, GhostPos4.y, GhostPos4.z);
+				if (positionIsCollidingWallGrid(nextGhostPos4.x, nextGhostPos4.y, nextGhostPos4.z, 1.8))
+				{
+					donald4XSpeed *= -1;
+					nextGhostPos4 = vec3(GhostPos4.x - donald4XSpeed, GhostPos4.y, GhostPos4.z);
+				}
+				GhostPos4 = nextGhostPos4;
+			}
+			else if (rand_int >= 6)
+			{
+				GhostDirection4 = 3;
+				nextGhostPos4 = vec3(GhostPos4.x + donald4XSpeed, GhostPos4.y, GhostPos4.z);
+				if (positionIsCollidingWallGrid(nextGhostPos4.x, nextGhostPos4.y, nextGhostPos4.z, 1.8))
+				{
+					donald4XSpeed *= -1;
+					nextGhostPos4 = vec3(GhostPos4.x + donald4XSpeed, GhostPos4.y, GhostPos4.z);
+				}
+				GhostPos4 = nextGhostPos4;
+			}
+		}
+	}
+
+	myDonald.draw(theta, GhostPos1);
+	myDonald.draw(theta, GhostPos2);
+	myDonald.draw(theta, GhostPos3);
+	myDonald.draw(theta, GhostPos4);
 
 	glEnable(GL_CULL_FACE);
 
