@@ -45,27 +45,27 @@ void arrowKey(int key, int x, int y)
 //////////////////////////////////////////////////////////////////////////////////////////////
 void keyPress(unsigned char key, int x, int y)
 {
-	if (key == 'w')
+	if (key == 'w' || key == 'W')
 	{
 		goForward = true;
 	}
 
-	if (key == 's')
+	if (key == 's' || key == 'S')
 	{
 		goReverse = true;
 	}
 
-	if (key == 'a')
+	if (key == 'a' || key == 'A')
 	{
 		strafeLeft = true;
 	}
 
-	if (key == 'd')
+	if (key == 'd' || key == 'D')
 	{
 		strafeRight = true;
 	}
 
-	if (key == 'q') exit(0);
+	if (key == 'q' || key == 'Q') exit(0);
 
 	glutPostRedisplay();
 }
@@ -79,22 +79,22 @@ void keyPress(unsigned char key, int x, int y)
 // Edited: Patrick H. 4/17
 //////////////////////////////////////////////////////////////////////////////////////////////
 void keyRelease(unsigned char key, int x, int y) {
-	if (key == 'w')
+	if (key == 'w' || key == 'W')
 	{
 		goForward = false;
 	}
 
-	if (key == 's')
+	if (key == 's' || key == 'S')
 	{
 		goReverse = false;
 	}
 
-	if (key == 'a')
+	if (key == 'a' || key == 'A')
 	{
 		strafeLeft = false;
 	}
 
-	if (key == 'd')
+	if (key == 'd' || key == 'D')
 	{
 		strafeRight = false;
 	}
