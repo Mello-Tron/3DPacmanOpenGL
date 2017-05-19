@@ -17,8 +17,8 @@ c:\users\pherbert17\documents\github\3dpacmanopengl\3dpacman\GraphicsObject.h(13
 c:\users\pherbert17\documents\github\3dpacmanopengl\3dpacman\GraphicsObject.h(152): warning C4056: overflow in floating-point constant arithmetic
 c:\users\pherbert17\documents\github\3dpacmanopengl\3dpacman\GraphicsObject.h(154): warning C4018: '<': signed/unsigned mismatch
 c:\users\pherbert17\documents\github\3dpacmanopengl\3dpacman\tree.h(123): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
-c:\users\pherbert17\documents\github\3dpacmanopengl\3dpacman\tree.h(181): warning C4305: 'argument': truncation from 'double' to 'GLclampf'
-c:\users\pherbert17\documents\github\3dpacmanopengl\3dpacman\tree.h(200): warning C4305: 'initializing': truncation from 'double' to 'GLfloat'
+c:\users\pherbert17\documents\github\3dpacmanopengl\3dpacman\tree.h(187): warning C4305: 'argument': truncation from 'double' to 'GLclampf'
+c:\users\pherbert17\documents\github\3dpacmanopengl\3dpacman\tree.h(206): warning C4305: 'initializing': truncation from 'double' to 'GLfloat'
 c:\users\pherbert17\documents\github\3dpacmanopengl\3dpacman\Zebra.h(150): warning C4305: 'argument': truncation from 'double' to 'GLclampf'
 c:\users\pherbert17\documents\github\3dpacmanopengl\3dpacman\Zebra.h(173): warning C4305: 'argument': truncation from 'double' to 'GLclampf'
 c:\users\pherbert17\documents\github\3dpacmanopengl\3dpacman\Graphic2d.h(123): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
@@ -27,10 +27,10 @@ c:\users\pherbert17\documents\github\3dpacmanopengl\3dpacman\Graphic2d.h(216): w
 c:\users\pherbert17\documents\github\3dpacmanopengl\3dpacman\Globals.h(11): warning C4305: 'initializing': truncation from 'double' to 'GLfloat'
 c:\users\pherbert17\documents\github\3dpacmanopengl\3dpacman\Globals.h(28): warning C4305: 'initializing': truncation from 'double' to 'GLfloat'
 c:\users\pherbert17\documents\github\3dpacmanopengl\3dpacman\Globals.h(34): warning C4305: 'initializing': truncation from 'double' to 'float'
-c:\users\pherbert17\documents\github\3dpacmanopengl\3dpacman\Globals.h(47): warning C4305: 'initializing': truncation from 'double' to 'float'
-c:\users\pherbert17\documents\github\3dpacmanopengl\3dpacman\Globals.h(48): warning C4305: 'initializing': truncation from 'double' to 'float'
-c:\users\pherbert17\documents\github\3dpacmanopengl\3dpacman\Globals.h(49): warning C4305: 'initializing': truncation from 'double' to 'float'
 c:\users\pherbert17\documents\github\3dpacmanopengl\3dpacman\Globals.h(50): warning C4305: 'initializing': truncation from 'double' to 'float'
+c:\users\pherbert17\documents\github\3dpacmanopengl\3dpacman\Globals.h(51): warning C4305: 'initializing': truncation from 'double' to 'float'
+c:\users\pherbert17\documents\github\3dpacmanopengl\3dpacman\Globals.h(52): warning C4305: 'initializing': truncation from 'double' to 'float'
+c:\users\pherbert17\documents\github\3dpacmanopengl\3dpacman\Globals.h(53): warning C4305: 'initializing': truncation from 'double' to 'float'
 c:\users\pherbert17\documents\github\3dpacmanopengl\3dpacman\Maze.h(13): warning C4018: '<': signed/unsigned mismatch
 c:\users\pherbert17\documents\github\3dpacmanopengl\3dpacman\Maze.h(49): warning C4018: '<': signed/unsigned mismatch
 c:\users\pherbert17\documents\github\3dpacmanopengl\3dpacman\Maze.h(65): warning C4018: '<': signed/unsigned mismatch
@@ -114,13 +114,13 @@ c:\users\pherbert17\documents\github\3dpacmanopengl\3dpacman\Display.h(745): war
 c:\users\pherbert17\documents\github\3dpacmanopengl\3dpacman\Display.h(756): warning C4305: 'argument': truncation from 'double' to 'float'
 c:\users\pherbert17\documents\github\3dpacmanopengl\3dpacman\Display.h(780): warning C4018: '<': signed/unsigned mismatch
 c:\users\pherbert17\documents\github\3dpacmanopengl\3dpacman\Display.h(783): warning C4305: 'argument': truncation from 'double' to 'float'
-c:\users\pherbert17\documents\github\3dpacmanopengl\3dpacman\Display.h(796): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-c:\users\pherbert17\documents\github\3dpacmanopengl\3dpacman\Display.h(798): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-c:\users\pherbert17\documents\github\3dpacmanopengl\3dpacman\Display.h(800): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-c:\users\pherbert17\documents\github\3dpacmanopengl\3dpacman\Display.h(805): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-c:\users\pherbert17\documents\github\3dpacmanopengl\3dpacman\Display.h(805): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\pherbert17\documents\github\3dpacmanopengl\3dpacman\Display.h(803): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\users\pherbert17\documents\github\3dpacmanopengl\3dpacman\Display.h(807): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\users\pherbert17\documents\github\3dpacmanopengl\3dpacman\Display.h(811): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\users\pherbert17\documents\github\3dpacmanopengl\3dpacman\Display.h(817): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\users\pherbert17\documents\github\3dpacmanopengl\3dpacman\Display.h(817): warning C4305: 'argument': truncation from 'double' to 'float'
   Generating code
-  4 of 503 functions ( 0.8%) were compiled, the rest were copied from previous compilation.
+  1 of 509 functions ( 0.2%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
     1 functions had inline decision re-evaluated but remain unchanged
   Finished generating code

@@ -19,6 +19,9 @@ void init()
 	ground.init();
 	myDot.init();
 	myDonald.init();
+	myDonald2.init();
+	myDonald3.init();
+	myDonald4.init();
 	myDonaldClose.init();
 	screenPic.init();
 

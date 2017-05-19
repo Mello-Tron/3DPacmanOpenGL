@@ -19,8 +19,8 @@ SkyBox go_skybox;
 GLfloat skyboxAngle = 0.0;
 
 // The Camera
-point4  eye(6.5, 0.0, 2.75, 0.0);
-point4  at(6.5, 0.0, 2.75, 1.0);
+point4  eye(50.0, 0.0, 66.0, 0.0);
+point4  at(50.0, 0.0, 66.0, 1.0);
 vec4    up(0.0, 1.0, 0.0, 0.0);
 point4  ns_eye(6.5, 0.0, 4.75, 1.0);
 point4  ns_at(6.5, 0.0, 3.75, 1.0);
@@ -38,6 +38,9 @@ Brick wall(1);
 Brick ground(0);
 tree myDot(0);
 tree myDonald(1);
+tree myDonald2(2);
+tree myDonald3(3);
+tree myDonald4(4);
 tree myDonaldClose(1);
 graphic2d screenPic(1);
 vec3 GhostPos1 = vec3(46.0, 0.0, 57.0);
@@ -54,6 +57,7 @@ string maze;
 
 //Game Logic
 int score = 0;
+int health = 3;
 
 //Sound
 sf::Sound sound;

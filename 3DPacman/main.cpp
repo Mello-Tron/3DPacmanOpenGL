@@ -76,7 +76,7 @@ int main(int argc, char **argv)
 		return -1;
 	soundPacmanChomp.setBuffer(buffer3);
 
-	//sound.play();
+	sound.play();
 
 	//populateDots
 	populateDots(maze);

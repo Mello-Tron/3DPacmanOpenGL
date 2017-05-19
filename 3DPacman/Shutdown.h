@@ -10,6 +10,9 @@ void OnShutdown()
 	wall.cleanup();
 	myDot.cleanup();
 	myDonald.cleanup();
+	myDonald2.cleanup();
+	myDonald3.cleanup();
+	myDonald4.cleanup();
 	myDonaldClose.cleanup();
 	screenPic.cleanup();
 }

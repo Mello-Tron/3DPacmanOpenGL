@@ -213,6 +213,14 @@ void gridCollision() {
 			eye = eye + cameraSpeed*view;
 			at = at + cameraSpeed*view;
 		}
+
+		if (cameraIsCollidingPosition(0, GhostPos1.x, GhostPos1.z, 2.0) || cameraIsCollidingPosition(0, GhostPos2.x, GhostPos2.z, 2.0) || cameraIsCollidingPosition(0, GhostPos3.x, GhostPos3.z, 2.0) || cameraIsCollidingPosition(0, GhostPos4.x, GhostPos4.z, 2.0)) {	
+			eye = vec4(50.0, 0.0, 66.0, 0.0);
+			at = vec4(50.0, 0.0, 66.0, 1.0);
+			view = vec4(6.5, 0.0, 2.75, 0.0);
+			up = vec4(0.0, 1.0, 0.0, 0.0);
+			health--;
+		}
 	}
 
 	if (goReverse == true)

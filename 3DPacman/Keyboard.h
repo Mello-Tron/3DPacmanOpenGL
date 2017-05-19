@@ -65,6 +65,22 @@ void keyPress(unsigned char key, int x, int y)
 		strafeRight = true;
 	}
 
+	if (key == 'u' || key == 'U')
+	{
+		view = vec4(6.5, 50.0, 2.75, 0.0);
+		eye = vec4(50.0, 50.0, 150.0, 0.0);
+		at = vec4(50.0, 50.0, 150.0, 1.0);
+		up = vec4(0.0, 51.0, 0.0, 0.0);
+	}
+
+	if (key == 'i' || key == 'I')
+	{
+		view = vec4(6.5, 0.0, 2.75, 0.0);
+		eye = vec4(50.0, 0.0, 66.0, 0.0);
+		at = vec4(50.0, 0.0, 66.0, 1.0);
+		up = vec4(0.0, 1.0, 0.0, 0.0);
+	}
+
 	if (key == 'q' || key == 'Q') exit(0);
 
 	glutPostRedisplay();

@@ -148,10 +148,16 @@ public:
 			int TreeTex = MyLoadBitmap("trees.bmp", GL_TEXTURE_2D, true);
 		}
 		else if (textureChoice == 1) {
-			int TreeTex = MyLoadBitmap("trees2.bmp", GL_TEXTURE_2D, true);
+			int TreeTex = MyLoadBitmap("Pinky.bmp", GL_TEXTURE_2D, true);
 		}
 		else if (textureChoice == 2) {
-			int TreeTex = MyLoadBitmap("trees3.bmp", GL_TEXTURE_2D, true);
+			int TreeTex = MyLoadBitmap("Blinky.bmp", GL_TEXTURE_2D, true);
+		}
+		else if (textureChoice == 3) {
+			int TreeTex = MyLoadBitmap("Inky.bmp", GL_TEXTURE_2D, true);
+		}
+		else if (textureChoice == 4) {
+			int TreeTex = MyLoadBitmap("Clyde.bmp", GL_TEXTURE_2D, true);
 		}
 
 		GL_CHECK_ERRORS

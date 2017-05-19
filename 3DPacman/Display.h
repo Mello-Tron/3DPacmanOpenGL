@@ -764,9 +764,9 @@ void display(void)
 	}
 
 	myDonald.draw(theta, GhostPos1);
-	myDonald.draw(theta, GhostPos2);
-	myDonald.draw(theta, GhostPos3);
-	myDonald.draw(theta, GhostPos4);
+	myDonald2.draw(theta, GhostPos2);
+	myDonald3.draw(theta, GhostPos3);
+	myDonald4.draw(theta, GhostPos4);
 
 	glEnable(GL_CULL_FACE);
 
@@ -782,7 +782,7 @@ void display(void)
 			//cout << "direction = " << direction << endl;
 			if (cameraIsCollidingPosition(direction, dots[i].pos.x, dots[i].pos.z, 0.4) && dots[i].isVisible) {
 				//cout << "HIT" << endl;
-				soundPacmanChomp.setVolume(50.0);
+				soundPacmanChomp.setVolume(30.0);
 				soundPacmanChomp.play();
 				dots[i].isVisible = false;
 				score += 1;
@@ -792,13 +792,25 @@ void display(void)
 		dots[i].display();
 	}
 
+	if (health == 0)
+	{
+		cout << "Score: " << score << endl;
+		exit(0);
+	}
+
 	//Draw health
-	vec3 screenPicPosition(-1.45, 0.8, 0.0);
-	screenPic.draw(theta, screenPicPosition);
-	vec3 screenPicPosition2(-1.25, 0.8, 0.0);
-	screenPic.draw(theta, screenPicPosition2);
-	vec3 screenPicPosition3(-1.05, 0.8, 0.0);
-	screenPic.draw(theta, screenPicPosition3);
+	if (health > 0) {
+		vec3 screenPicPosition(-1.45, 0.8, 0.0);
+		screenPic.draw(theta, screenPicPosition);
+	}
+	if (health > 1) {
+		vec3 screenPicPosition2(-1.25, 0.8, 0.0);
+		screenPic.draw(theta, screenPicPosition2);
+	}
+	if (health > 2) {
+		vec3 screenPicPosition3(-1.05, 0.8, 0.0);
+		screenPic.draw(theta, screenPicPosition3);
+	}
 
 	//Draw Score
 	string scoreText = "Score: " + to_string(score);
